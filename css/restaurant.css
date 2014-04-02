@@ -1,0 +1,41 @@
+
+
+#res_head{
+    text-align: center;
+    font-size: 32px;
+    background: black;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+
+}
+
+//#access_title{
+//  text-align: end;
+//background: blueviolet;
+// border: 1px solid black;
+// padding: 5px;
+// margin-bottom: 5px;
+//width: 100%;
+//}
+
+#text_reviews_title{
+    text-align: right;
+    background: black;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+#res_icons{
+    text-align: right;
+    background:url(../images/res1.jpg);
+    background-size:100%;
+    background-repeat:no-repeat;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}

@@ -1,0 +1,61 @@
+.splash{position: absolute;}
+body{text-align:  right}
+#submit_search{text-align: center}
+#search{width: content-box  }
+.right{text-align: right}
+#main_section {text-align: right}
+
+.centerimg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main_section{
+    float: right;
+    width: 90%;
+    margin: 30px; /* 720px, 280 left*/
+}
+
+
+#search_table
+{
+
+    border-collapse:collapse;
+}
+
+tr.last
+{
+    border-bottom: none;
+}
+
+.mycell {
+    max-width: 10px;
+}
+
+#search1{
+    text-align: center;
+
+}
+
+#res_title{
+    background: lightblue;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+
+}
+
+#table td {padding: 0px; margin: 0px;}
+#table {border-spacing: 0px;}
+
+
+#searchTable {
+    padding-right: 15px; 
+    padding-top: 15px; 
+    background-color: black; /* Optional - to visualize padding and line leading... */
+}
+
+
+

@@ -1,0 +1,31 @@
+/* 
+    Created on : 01/04/2014, 10:50:56
+    Author     : Aviv Florian
+*/
+
+.my-new-list {
+    margin-top: 50px
+}
+li {
+  font: 200 16px/1.5 Georgia, Times New Roman, serif;     
+  padding: 10px;
+  overflow: auto;
+  text-align: center;
+}
+ 
+li:hover {
+  background: #eee;
+  cursor: pointer;
+ 
+}
+    
+
+
+#place{
+     background:#efefef; 
+     background-image:url('../images/restaurant.jpg');
+     background-repeat: no-repeat; 
+     background-position: center;
+     height: 155px;
+}
+
