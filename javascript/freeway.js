@@ -4,11 +4,6 @@ var places = {};
 
 $(document).on("click", ".place-btn", function(e) {
     e.preventDefault();
-    
-  
-    
-    
-
     var self = this;
     console.log($(this).attr("data-place-id"));
     $.each(places.data, function(key, val) {
@@ -23,10 +18,10 @@ $(document).on("click", ".place-btn", function(e) {
             $(".my-new-list").hide();
             $(".placesAround").hide();
             $("#logoPic").hide();
-            $("#parking").attr('src', "../images/parking_icon" + places.current_place.parking + ".jpg");
-            $("#entrance").attr('src', "../images/entrance_icon" + places.current_place.entrance + ".jpg");
-            $("#inside").attr('src', "../images/inside_icon" + places.current_place.inside + ".jpg");
-            $("#restroom").attr('src', "../images/restroom_icon" + places.current_place.restroom + ".jpg");
+            $("#parking").attr('src', "images/parking_icon" + places.current_place.parking + ".jpg");
+            $("#entrance").attr('src', "images/entrance_icon" + places.current_place.entrance + ".jpg");
+            $("#inside").attr('src', "images/inside_icon" + places.current_place.inside + ".jpg");
+            $("#restroom").attr('src', "images/restroom_icon" + places.current_place.restroom + ".jpg");
         }
           // Calls the server for more information (phone and picture)
   //$.getJSON("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + val.reference + "&sensor=true&key=AIzaSyArToMuYtcxnymrrBjf2D7YabV2HjpoZuU",
@@ -58,25 +53,38 @@ function showPosition(position) {
                 'lng': position.coords.longitude,
                 'search': getValue()
             },
+   
     //creats the list of the restaurnt around me
     function(data) {
-        //document.write("<h2>מקומות בסביבה</h2>");
         console.log(data);
         places.data = data;
         var items = [];
         $.each(data, function(key, val) {
-            console.log(key, val);
-            items.push("<li id='" + key + "'>" +
-                    "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + val.name + "</a></li>");
+            places.current_place = val;
+            items.push("<ul style=\"padding:0; margin:0;\">" +
+                "<li style=\" height:14%; border-bottom: 1px solid gray;\"" + ">" +
+                    "<div style=\"" + "float:left; width: 53%;\"" + ">" +
+                     "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.jpg\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" + "></a>" +
+                       "$(\"#parkingList\").attr('src', \"images/parking_icon\"" + places.current_place.parking + "\".jpg\");" +
+                       "$(\"#entranceList\").attr('src', \"images/entrance_icon\"" + places.current_place.entrance + "\".jpg\");" +
+                       "$(\"#insideList\").attr('src', \"images/inside_icon\"" + places.current_place.inside + "\".jpg\");" +
+                       "$(\"#restroomList\").attr('src', \"images/restroom_icon\"" + places.current_place.restroom + "\".jpg\");" +
+                   "</div>" +
+                   "<div style=\"float:right; width: 47%; text-align: right; \">" +
+                   "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
+                   "<div style=\"font-size: 0.8rem; color: black;\">5 km from your position</div>" +
+                   "</div>" + 
+                "</li>" +
+            "</ul>");
+         //   items.push("<li id='" + key + "'>" +
+           //         "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + val.name + "</a></li>");
         });
+        
         $("<ul/>", {
             "class": "my-new-list",
             html: items.join("")
-        }).prependTo("body");
-        //console.log(data);
-    });
-    // x.innerHTML = "Latitude: " + position.coords.latitude +
-    //     "<br>Longitude: " + position.coords.longitude;
+        }).appendTo("body");
+       });
 }
 
 // sends the typed text from the search box to the server
@@ -92,7 +100,40 @@ function getValue()
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPPN",
             {
                 'searchField': x
-            });
+            },
+            
+     //creats the list of the restaurnt that came back from the seach
+    function (data){
+        console.log(data);
+        places.data = data;
+        var items = [];
+        $.each(data, function(key, val) {
+            places.current_place = val;
+            items.push("<ul style=\"padding:0; margin:0;\">" +
+                "<li style=\" height:14%; border-bottom: 1px solid gray;\"" + ">" +
+                    "<div style=\"" + "float:left; width: 53%;\"" + ">" +
+                     "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.jpg\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" + "></a>" +
+                       "$(\"#parkingList\").attr('src', \"images/parking_icon\"" + places.current_place.parking + "\".jpg\");" +
+                       "$(\"#entranceList\").attr('src', \"images/entrance_icon\"" + places.current_place.entrance + "\".jpg\");" +
+                       "$(\"#insideList\").attr('src', \"images/inside_icon\"" + places.current_place.inside + "\".jpg\");" +
+                       "$(\"#restroomList\").attr('src', \"images/restroom_icon\"" + places.current_place.restroom + "\".jpg\");" +
+                   "</div>" +
+                   "<div style=\"float:right; width: 47%; text-align: right; \">" +
+                   "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
+                   "<div style=\"font-size: 0.8rem; color: black;\">5 km from your position</div>" +
+                   "</div>" + 
+                "</li>" +
+            "</ul>");
+         //   items.push("<li id='" + key + "'>" +
+           //         "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + val.name + "</a></li>");
+        });
+        
+        $("<ul/>", {
+            "class": "my-new-list",
+            html: items.join("")
+        }).appendTo("body");
+       });
+    
 }
 
 

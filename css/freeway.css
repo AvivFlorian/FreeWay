@@ -3,29 +3,77 @@
     Author     : Aviv Florian
 */
 
+body{
+ //background-color:#ede4dc;
+ background-color: rgb(250, 248, 248);
+ font-size: 62.5%;
+}
+
+
+
+
+  
+input[type="baksearch"]{
+ width:250px;
+ height:30px;
+ padding-left:15px;
+ border-radius:6px;
+ border:none;
+ color:#939393;
+ font-weight:500;
+ background-color:#fffbf8;
+ -webkit-box-shadow:
+ 0 -2px 2px 0 rgba(199, 199, 199, 0.55),
+ 0 1px 1px 0 #fff,
+ 0 2px 2px 1px #fafafa,
+ 0 2px 4px 0 #b2b2b2 inset,
+ 0 -1px 1px 0 #f2f2f2 inset,
+ 0 15px 15px 0 rgba(41, 41, 41, 0.09) inset;
+ -moz-box-shadow: 
+ 0 -2px 2px 0 rgba(199, 199, 199, 0.55),
+ 0 1px 1px 0 #fff,
+ 0 2px 2px 1px #fafafa,
+ 0 2px 4px 0 #b2b2b2 inset,
+ 0 -1px 1px 0 #f2f2f2 inset,
+ 0 15px 15px 0 rgba(41, 41, 41, 0.09) inset;
+ box-shadow:
+ 0 -2px 2px 0 rgba(199, 199, 199, 0.55),
+ 0 1px 1px 0 #fff,
+ 0 2px 2px 1px #fafafa,
+ 0 2px 4px 0 #b2b2b2 inset,
+ 0 -1px 1px 0 #f2f2f2 inset,
+ 0 15px 15px 0 rgba(41, 41, 41, 0.09) inset;
+}
+
+input[type="search"]:focus{
+ outline:0;
+}
+
+
+
 .my-new-list {
     margin-top: 50px
 }
 li {
-  font: 200 16px/1.5 Georgia, Times New Roman, serif;     
-  padding: 10px;
-  overflow: auto;
-  text-align: center;
+    font: 200 16px/1.5 Georgia, Times New Roman, serif;     
+    padding: 10px;
+    overflow: auto;
+    text-align: center;
 }
- 
+
 li:hover {
-  background: #eee;
-  cursor: pointer;
- 
+    background: #eee;
+    cursor: pointer;
+
 }
-    
+
 
 
 #place{
-     background:#efefef; 
-     background-image:url('../images/restaurant.jpg');
-     background-repeat: no-repeat; 
-     background-position: center;
-     height: 155px;
+    background:#efefef; 
+    background-image:url('../images/restaurant.jpg');
+    background-repeat: no-repeat; 
+    background-position: center;
+    height: 155px;
 }
 

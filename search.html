@@ -18,6 +18,7 @@
     </head>
 
     <body onload="getLocation()" style="border:0; margin:0; padding: 0;"> 
+        <!--
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false">
         </script>
         <script type="text/javascript">
@@ -31,15 +32,38 @@
             }
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>
-
+        -->
         <!--The header div -->
-        <div style="background-color: #2bb98b; height: 50px; color: white; line-height: 50px; text-align: center;">
-            &lt; <img src="images/small_logo.jpg" style="height: 50px; width: 100px;">
-            <input style="margin-left: 10px; width:300px; border-radius:10px; position:relative; text-align:center" type="search" name="searchField" id="searchField" onchange="getValue()" placeholder="חפש מקומות נגישים לפי שם/סוג/אזור">
+        <div style="background-color: #2bb98b; height: 30%; color: white; line-height: 50px; text-align: center;">
+            <div>
+            <img src="images/freeWayLogo.jpg" style="width:20%" />
+            </div>
+            
+            <div>
+            <input style="border:2px solid white; color: white; font-size: 1.5rem; border-radius: 12px; padding: 2%; width: 90%; background: transparent;" type="search" name="searchField" id="searchField" onchange="getValue()" placeholder="חפש מסעדה נגישה" list="dataList1">
+            </div>
         </div>
 
-        <h2 id="placesAround" align="center">מקומות בסביבה</h2>
+     <!--   <div>
+            <ul style="padding: 0; margin:0;">
+                <li style="height:14%; border-bottom: 1px solid gray; ">
+                    <div style="float:left; width: 53%;">
+                    <a href="#"><img src="images/leftArrow.jpg" style="width: 4%; margin-right: 11.6%; margin-bottom: 8%;" /></a>
+                    <a href="#"><img src="" id="parkingList" style="width: 16%; margin-right: 5.6%;" /></a>
+                    <a href="#"><img src="" id="entranceList" style="width: 16%; margin-right: 5.6%;" /></a>
+                    <a href="#"><img src="" id="insideList" style="width: 16%; margin-right: 5.6%;;" /></a>
+                    <a href="#"><img src="" id="restroomList" style="width: 16%;" /></a>
+                    </div>
+                    
+                   <div style="float:right; width: 47%; text-align: right; ">
+                        <div style="font-size: 1.4rem; color: #2bb98b;">coffee bar</div>
+                        <div style="font-size: 0.8rem; color: black;">your position 5km</div>
+                    </div>  
+                </li>
+            </ul>
+        </div>
         
+         -->
         <!--The restaurant div -->
         <div data-role="page" id="app" style="display: none;">  
 
@@ -57,50 +81,42 @@
             <!--The icons div -->
             <div style="text-align: center;">
                 <div style="clear:both; margin-bottom: 20px; font-size:0;">
-                    <a href="#">
-                        <img src="" id="parking" style="width: 50px; height: 50px; margin-right: 35px;" />
-                    </a>
-                    <a href="#">
-                        <img src="" id="entrance" style="width: 50px; height: 50px; margin-right: 35px;" />
-                    </a>
-                    <a href="#">
-                        <img src="" id="inside" style="width: 50px; height: 50px; margin-right: 35px;" />
-                    </a>
-                    <a href="#">
-                        <img src="" id="restroom" style="width: 50px; height: 50px;" />
-                    </a>
+                    <a href="#"><img src="" id="parking" style="width: 50px; height: 50px; margin-right: 35px;"/></a> 
+                    <a href="#"><img src="" id="entrance" style="width: 50px; height: 50px; margin-right: 35px;"/></a>
+                    <a href="#"><img src="" id="inside" style="width: 50px; height: 50px; margin-right: 35px;"/></a>
+                    <a href="#"><img src="" id="restroom" style="width: 50px; height: 50px;"/></a>
                 </div>
-                <a style="height: 20px; width:340px; border: 2px solid #99d7be; display: inline-block;">עריכה</a>
+                <a style="height: 20px; width:340px; border: 2px solid #99d7be; display: inline-block;">דווח נגישות</a>
             </div>
 
             <!--The google map div -->
             <div onclick="showMap()" id="map-canvas" style="background:#efefef; height: 65px; color: white;">
-            
-        </div>
 
-        <!--The pictures div -->
-        <div  style="background:#5b5754; height: 80px; color: white;">
-            <a href="addPic()">
-                <img src="images/add_pic.jpg" id="entrance" style="width: 100px; height: 80px; margin-right: 0px;" />
-            </a>
-            <img src="images/res1.jpg" id="entrance" style="width: 100px; height: 80px; margin-right: 0px;" />
-            <img src="images/res2.jpg" id="entrance" style="width: 100px; height: 80px; margin-right: 0px;" />
-        </div>
+            </div>
 
-        <!--The comments header div -->
-        <div  style="background:#f5f4ef; height: 50px; color: white;  line-height: 50px; text-align: center;">
-            <a href="#">
-                <img src="images/write_comments.jpg" id="write_comments" style="width: 150px; height: 50px;  margin-left: 20px;" />
-            </a>
-            <a href="#">
-                <img src="images/comments.jpg" id="comments" style="width: 180px; height: 30px; margin-left: 200px; " /> 
-            </a>
-        </div>
-        <!--The comments div -->
-        <div  style="background:#ffffff; height: 220px; color: black;">
-            <div class="comments" style="text-align: center; margin-bottom: 5px; font-size:28px; color: black; font-family: David;"></div>
+            <!--The pictures div -->
+            <div  style="background:#5b5754; height: 80px; color: white;">
+                <a href="addPic()">
+                    <img src="images/add_pic.jpg" id="entrance" style="width: 100px; height: 80px; margin-right: 0px;" />
+                </a>
+                <img src="images/res1.jpg" id="entrance" style="width: 100px; height: 80px; margin-right: 0px;" />
+                <img src="images/res2.jpg" id="entrance" style="width: 100px; height: 80px; margin-right: 0px;" />
+            </div>
 
+            <!--The comments header div -->
+            <div  style="background:#f5f4ef; height: 50px; color: white;  line-height: 50px; text-align: center;">
+                <a href="#">
+                    <img src="images/write_comments.jpg" id="write_comments" style="width: 150px; height: 50px;  margin-left: 20px;" />
+                </a>
+                <a href="#">
+                    <img src="images/comments.jpg" id="comments" style="width: 180px; height: 30px; margin-left: 200px; " /> 
+                </a>
+            </div>
+            <!--The comments div -->
+            <div  style="background:#ffffff; height: 220px; color: black;">
+                <div class="comments" style="text-align: center; margin-bottom: 5px; font-size:28px; color: black; font-family: David;"></div>
+
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
