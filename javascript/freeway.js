@@ -55,11 +55,16 @@ function showPosition(position) {
                 'search': getValue()
             },
    
+   
+    
     //creats the list of the restaurnt around me
     function(data) {
         console.log(data);
+        var places = {};
         places.data = data;
         var items = [];
+        //console.log(place.data);
+        
         $.each(data, function(key, val) {
             places.current_place = val;
             items.push("<ul style=\"padding:0; margin:0;\">" +
@@ -79,7 +84,7 @@ function showPosition(position) {
                    "</div>" +
                    "<div style=\"float:right; width: 47%; text-align: right; \">" +
                    "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
-                   "<div style=\"font-size: 0.8rem; color: black;\">5 km from your position</div>" +
+                   //<"div style=\"font-size: 0.8rem; color: black;\">5 km from your position</div>" +
                    "</div>" + 
                 "</li>" +
             "</ul>");
@@ -114,6 +119,7 @@ function getValue()
         console.log(data);
         places.data = data;
         var items = [];
+        $(".my-new-list").hide();
         $.each(data, function(key, val) {
             places.current_place = val;
             items.push("<ul style=\"padding:0; margin:0;\">" +
@@ -127,7 +133,7 @@ function getValue()
                    "</div>" +
                    "<div style=\"float:right; width: 47%; text-align: right; \">" +
                    "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
-                   "<div style=\"font-size: 0.8rem; color: black;\">5 km from your position</div>" +
+                   //"<div style=\"font-size: 0.8rem; color: black;\">5 km from your position</div>" +
                    "</div>" + 
                 "</li>" +
             "</ul>");
@@ -136,7 +142,7 @@ function getValue()
         });
         
         $("<ul/>", {
-            "class": "my-new-list",
+            "class": "my-new-results-list",
             html: items.join("")
         }).appendTo("body");
        });
