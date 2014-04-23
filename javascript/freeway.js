@@ -22,6 +22,7 @@ $(document).on("click", ".place-btn", function(e) {
             $("#entrance").attr('src', "images/entrance_icon" + places.current_place.entrance + ".jpg");
             $("#inside").attr('src', "images/inside_icon" + places.current_place.inside + ".jpg");
             $("#restroom").attr('src', "images/restroom_icon" + places.current_place.restroom + ".jpg");
+            extraDetails(places.current_place.reference);
         }
           // Calls the server for more information (phone and picture)
   //$.getJSON("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + val.reference + "&sensor=true&key=AIzaSyArToMuYtcxnymrrBjf2D7YabV2HjpoZuU",
@@ -64,11 +65,17 @@ function showPosition(position) {
             items.push("<ul style=\"padding:0; margin:0;\">" +
                 "<li style=\" height:14%; border-bottom: 1px solid gray;\"" + ">" +
                     "<div style=\"" + "float:left; width: 53%;\"" + ">" +
-                     "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.jpg\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" + "></a>" +
-                       "$(\"#parkingList\").attr('src', \"images/parking_icon\"" + places.current_place.parking + "\".jpg\");" +
-                       "$(\"#entranceList\").attr('src', \"images/entrance_icon\"" + places.current_place.entrance + "\".jpg\");" +
-                       "$(\"#insideList\").attr('src', \"images/inside_icon\"" + places.current_place.inside + "\".jpg\");" +
-                       "$(\"#restroomList\").attr('src', \"images/restroom_icon\"" + places.current_place.restroom + "\".jpg\");" +
+                    "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.jpg\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" + 
+                    "data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">"+ "</a>" +
+                      
+                    "<a href=\"#\"><img src=\"\" id=\"parkingList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"\" id=\"entranceList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>"+
+                    "<a href=\"#\"><img src=\"\" id=\"insideList\" style=\"width: 16%; margin-right: 5.6%;;\" /></a>" +
+                    "<a href=\"#\"><img src=\"\" id=\"restroomList\" style=\"width: 16%;\" /></a>"+
+                       $("#parkingList").attr('src', "images/parking_icon" + places.current_place.parking + ".jpg") +
+                       $("#entranceList").attr('src', "images/entrance_icon" + places.current_place.entrance + ".jpg") +
+                       $("#insideList").attr('src', "images/inside_icon" + places.current_place.inside + ".jpg") +
+                       $("#restroomList").attr('src', "images/restroom_icon" + places.current_place.restroom + ".jpg") +
                    "</div>" +
                    "<div style=\"float:right; width: 47%; text-align: right; \">" +
                    "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
@@ -102,7 +109,7 @@ function getValue()
                 'searchField': x
             },
             
-     //creats the list of the restaurnt that came back from the seach
+     //creats the list of the restaurnt that came back from the search
     function (data){
         console.log(data);
         places.data = data;
@@ -155,3 +162,23 @@ function changeIcon()
      //    initialize("app");
          //$("#app").hide();
    // }
+
+function extraDetails(ref)
+{
+   
+     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPED&reference=" + ref ,
+            {},
+             function(data){
+                  if (data.placePhotos == null){
+                    $('#place').css('background-image', 'url(images/restaurant.jpg)');  
+                    $('#place').css('no-repeat', "true");  
+                } else {
+                    var imageUrl = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + data.placePhotos + '&sensor=true&key=AIzaSyArToMuYtcxnymrrBjf2D7YabV2HjpoZuU';
+                    console.log(imageUrl);
+                    $('#place').css('background-image', 'url(' + imageUrl + ')');
+                }
+             }
+            );
+ }
+
+ 

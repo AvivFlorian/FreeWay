@@ -71,7 +71,7 @@ li:hover {
 
 #place{
     background:#efefef; 
-    background-image:url('../images/restaurant.jpg');
+    //background-image:url('../images/restaurant.jpg');
     background-repeat: no-repeat; 
     background-position: center;
     height: 155px;
