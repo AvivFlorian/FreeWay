@@ -36,15 +36,17 @@
         <!--The header div -->
         <div style="background-color: #2bb98b; height: 30%; color: white; line-height: 50px; text-align: center;">
             <div>
-            <img src="images/freeWayLogo.jpg" style="width:20%" />
+                <img src="images/freeWayLogo.jpg" style="width:20%" />
             </div>
-            
+
             <div>
-            <input style="border:2px solid white; color: white; font-size: 1.5rem; border-radius: 12px; padding: 2%; width: 90%; background: transparent;" type="search" name="searchField" id="searchField" onchange="getValue()" placeholder="חפש מסעדה נגישה" list="dataList1">
+                <input style="border:2px solid white; color: white; font-size: 1.5rem; border-radius: 12px; padding: 2%; width: 90%; background: transparent;" type="search" name="searchField" id="searchField" onchange="getValue()" placeholder="חפש מסעדה נגישה" list="dataList1">
             </div>
         </div>
 
-     <!--   <div>
+        <!--The list of places around me  -->
+       
+        <!--<div>
             <ul style="padding: 0; margin:0;">
                 <li style="height:14%; border-bottom: 1px solid gray; ">
                     <div style="float:left; width: 53%;">
@@ -63,7 +65,7 @@
             </ul>
         </div>
         
-         -->
+        -->
         <!--The restaurant div -->
         <div data-role="page" id="app" style="display: none;">  
 
@@ -86,9 +88,9 @@
                     <a href="#"><img src="" id="inside" style="width: 50px; height: 50px; margin-right: 35px;"/></a>
                     <a href="#"><img src="" id="restroom" style="width: 50px; height: 50px;"/></a>
                 </div>
-                <a style="height: 20px; width:170px; border: 2px solid #99d7be; display: inline-block;">אשר נגישות</a>
-                <a style="height: 20px; width:170px; border: 2px solid #99d7be; display: inline-block;">עדכן נגישות </a>
-                 
+                <!--<a style="height: 20px; width:170px; border: 2px solid #99d7be; display: inline-block;">אשר נגישות</a>-->
+                <a id="button" class="myButton" style="height: 20px; width:170px; border: 2px solid #99d7be; display: inline-block;">עדכן נגישות </a>
+
             </div>
 
             <!--The google map div -->
