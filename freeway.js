@@ -66,6 +66,7 @@ function getLocation()
     }
 }
 function showPosition(position) {
+      alert("its working");
     //console.log(position, position.coords.longitude);
 
     // call server
@@ -75,6 +76,7 @@ function showPosition(position) {
                 'lng': position.coords.longitude,
                 'search': getValue()
       },
+    
     //creats the list of the restaurnt around me
     function(data) {
         console.log(data);
@@ -84,13 +86,13 @@ function showPosition(position) {
         // these arguments will be the correct icon to show (if there is no detail about this criterion)
         var p_icon, e_icon, i_icon, r_icon;
         //console.log(place.data);
-        items.push('<table align="left" style="alignment-adjust: central; text-align: center; margin-left:203px; font-family: fantasy; font-size: large">' +
-                '<tr align="left">' +
-                '<td style="width: 125px ">חניה </td>' +
-                '<td style="width: 95px ">כניסה</td>' +
-                '<td style="width: 150px ">מרווח בתוך המסעדה</td>' +
-                '<td style="width: 130px; text-align: center; ">שירותים</td>' +
-                '</table></br></br></br>');
+      //  items.push('<table align="left" style="alignment-adjust: central; text-align: center; margin-left:203px; font-family: fantasy; font-size: large">' +
+         //       '<tr align="left">' +
+           //     '<td style="width: 125px ">חניה </td>' +
+             //   '<td style="width: 95px ">כניסה</td>' +
+               // '<td style="width: 150px ">מרווח בתוך המסעדה</td>' +
+                //'<td style="width: 130px; text-align: center; ">שירותים</td>' +
+              //  '</table></br></br></br>');
         $.each(data, function(key, val) {
             places.current_place = val;
 
