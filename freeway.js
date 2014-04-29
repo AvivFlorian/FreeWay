@@ -62,9 +62,11 @@ alert("get location is working");
 
     if (navigator.geolocation)
     {
+        alert("gets to the if");
         navigator.geolocation.getCurrentPosition(showPosition);
     }
     else {
+        alert("gets to the else");
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
