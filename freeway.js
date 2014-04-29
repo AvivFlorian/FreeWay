@@ -3,6 +3,7 @@ alert("javascriyt works");
 var places = {};
 
 $(document).on("click", ".place-btn", function(e) {
+   alert("on click is working")
     e.preventDefault();
     var self = this;
     console.log(places.data);
@@ -57,6 +58,8 @@ $(document).on("click", ".place-btn", function(e) {
 var x = document.getElementById("location");
 function getLocation()
 {
+alert("get location is working");
+
     if (navigator.geolocation)
     {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -66,7 +69,7 @@ function getLocation()
     }
 }
 function showPosition(position) {
-    
+    alert("show position is working");
     //console.log(position, position.coords.longitude);
 
     // call server
@@ -79,6 +82,7 @@ function showPosition(position) {
     
     //creats the list of the restaurnt around me
     function(data) {
+       alert("creating the list  of the restaurnt around me is working");
         console.log(data);
         places.data = data;
         var items = [];
@@ -149,6 +153,7 @@ function showPosition(position) {
 // sends the typed text from the search box to the server
 function getValue()
 {
+     alert("get value from the typed text in the search box is working");
     //console.log(searchField.value);
     //return $("#searchField").val();
 
@@ -162,6 +167,7 @@ function getValue()
             },
     //creats the list of the restaurnt that came back from the search
     function(data) {
+        alert("creats the list of the restaurnt that came back from the search")
         console.log(data);
         places.data = data;
         var items = [];
@@ -224,6 +230,7 @@ function getValue()
 //press on the icons and send update about the deferen criterions
 function changeIcons()
 {
+    alert("change icons is working");
     //chsnges all the icons to gray
      $("#parking").attr('src', "images/parking_icon0.jpg");
      $("#entrance").attr('src', "images/entrance_icon0.jpg");
@@ -278,7 +285,7 @@ function pickColorP(){
 
 function extraDetails(ref)
 {
-
+    alert("get extra details is working");
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPED&reference=" + ref,
             {},
             function(data) {
