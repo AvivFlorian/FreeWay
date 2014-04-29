@@ -1,4 +1,4 @@
-
+alert("javascriyt works");
 //gets the list of places around me
 var places = {};
 
@@ -66,7 +66,7 @@ function getLocation()
     }
 }
 function showPosition(position) {
-      alert("its working");
+    
     //console.log(position, position.coords.longitude);
 
     // call server
