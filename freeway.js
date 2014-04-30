@@ -7,14 +7,14 @@ var curInside;
 var curRestroom;
 
 function init(){
-alert("init is working");
+//alert("init is working");
 document.addEventListener("deviceready", getLocation, false);
 
-//getLocation();
+getLocation();
 
 }
 $(document).on("click", ".place-btn", function(e) {
-    alert("on click is working")
+    //alert("on click is working")
     e.preventDefault();
     var self = this;
     console.log(places.data);
@@ -69,11 +69,10 @@ $(document).on("click", ".place-btn", function(e) {
 var x = document.getElementById("location");
 function getLocation()
 {
-    alert("get location is working");
+    //alert("get location is working");
 
     if (navigator.geolocation)
     {
-       alert("get location is working - if");
         navigator.geolocation.getCurrentPosition(showPosition);
     }
     else {
@@ -81,7 +80,7 @@ function getLocation()
     }
 }
 function showPosition(position) {
-    alert("show position is working");
+    //alert("show position is working");
     console.log(position, position.coords.longitude);
 
     // call server
