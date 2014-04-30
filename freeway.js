@@ -10,7 +10,7 @@ function init(){
 //alert("init is working");
 document.addEventListener("deviceready", getLocation, false);
 
-getLocation();
+//getLocation();
 
 }
 $(document).on("click", ".place-btn", function(e) {
