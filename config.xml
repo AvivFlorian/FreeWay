@@ -13,6 +13,6 @@
     <description>
        The FreeWay App 
     </description>
-<content src="search.html"/>
+<!--<content src="search.html"/>-->
    
 </widget>
