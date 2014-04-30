@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <widget xmlns   = "http://www.w3.org/ns/widgets"
+  
+<widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.FreeWay"
         versionCode = "10" 
@@ -8,7 +9,7 @@
     <!-- versionCode is optional and Android only -->
 
     <name>FreeWay</name>
-
+     <icon src="logo.jpg" width="128" height="128"/>
     <description>
        The FreeWay App 
     </description>

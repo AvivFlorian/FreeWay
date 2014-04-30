@@ -27,6 +27,11 @@ input[type="search"]:focus{
     margin-top: 11px;
     margin-left: -45px;
 }
+
+.my-new-list {
+    margin-top: 11px;
+    margin-left: -45px;
+}
 li {
     font: 200 16px/1.5 Georgia, Times New Roman, serif;     
     padding: 10px;
