@@ -5,13 +5,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="freeway.js"></script>
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=true" type="text/javascript"></script>
+        <script src="cordova.js" type="text/javascript"></script>
+        <script src="phonegap.js" type="text/javascript"></script>
+        <script src="freeway.js" type="text/javascript"></script>
 
         <link rel="stylesheet" href="freeway.css" />
     </head>
 
-    <body onload="getLocation()" style="border:0; margin:0; padding: 0;"> 
+    <body onload="init();" style="border:0; margin:0; padding: 0;"> 
         <!--
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false">
         </script>
