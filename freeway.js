@@ -1,9 +1,13 @@
-alert("javascriyt works");
+
 //gets the list of places around me
 var places = {};
+var curParking;
+var curEntrance;
+var curInside;
+var curRestroom;
 
 $(document).on("click", ".place-btn", function(e) {
-   alert("on click is working")
+    // alert("on click is working")
     e.preventDefault();
     var self = this;
     console.log(places.data);
@@ -21,7 +25,7 @@ $(document).on("click", ".place-btn", function(e) {
             $(".my-new-results-list").hide();
             $(".placesAround").hide();
             $("#logoPic").hide();
-            $("#button").click(changeIcons);
+            $("#button1").click(changeIcons);
 
 
             //puts the right icon according to the data we have about the place
@@ -58,21 +62,19 @@ $(document).on("click", ".place-btn", function(e) {
 var x = document.getElementById("location");
 function getLocation()
 {
-alert("get location is working");
+//alert("get location is working");
 
     if (navigator.geolocation)
     {
-        alert("gets to the if");
         navigator.geolocation.getCurrentPosition(showPosition);
     }
     else {
-        alert("gets to the else");
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
 function showPosition(position) {
-    alert("show position is working");
-    //console.log(position, position.coords.longitude);
+    // alert("show position is working");
+    console.log(position, position.coords.longitude);
 
     // call server
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPFL",
@@ -80,11 +82,10 @@ function showPosition(position) {
                 'lat': position.coords.latitude,
                 'lng': position.coords.longitude,
                 'search': getValue()
-      },
-    
+            },
     //creats the list of the restaurnt around me
     function(data) {
-       alert("creating the list  of the restaurnt around me is working");
+        //alert("creating the list  of the restaurnt around me is working");
         console.log(data);
         places.data = data;
         var items = [];
@@ -92,13 +93,13 @@ function showPosition(position) {
         // these arguments will be the correct icon to show (if there is no detail about this criterion)
         var p_icon, e_icon, i_icon, r_icon;
         //console.log(place.data);
-      //  items.push('<table align="left" style="alignment-adjust: central; text-align: center; margin-left:203px; font-family: fantasy; font-size: large">' +
-         //       '<tr align="left">' +
-           //     '<td style="width: 125px ">חניה </td>' +
-             //   '<td style="width: 95px ">כניסה</td>' +
-               // '<td style="width: 150px ">מרווח בתוך המסעדה</td>' +
-                //'<td style="width: 130px; text-align: center; ">שירותים</td>' +
-              //  '</table></br></br></br>');
+        //  items.push('<table align="left" style="alignment-adjust: central; text-align: center; margin-left:203px; font-family: fantasy; font-size: large">' +
+        //       '<tr align="left">' +
+        //     '<td style="width: 125px ">חניה </td>' +
+        //   '<td style="width: 95px ">כניסה</td>' +
+        // '<td style="width: 150px ">מרחב במקום</td>' +
+        //'<td style="width: 130px; text-align: center; ">שירותים</td>' +
+        //  '</table></br></br></br>');
         $.each(data, function(key, val) {
             places.current_place = val;
 
@@ -155,21 +156,20 @@ function showPosition(position) {
 // sends the typed text from the search box to the server
 function getValue()
 {
-     alert("get value from the typed text in the search box is working");
+    //alert("get value from the typed text in the search box is working");
     //console.log(searchField.value);
     //return $("#searchField").val();
 
     var x = document.getElementById("searchField").value;
 
     // call server
-
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPPN",
             {
                 'searchField': x
             },
     //creats the list of the restaurnt that came back from the search
     function(data) {
-        alert("creats the list of the restaurnt that came back from the search")
+        // alert("creats the list of the restaurnt that came back from the search")
         console.log(data);
         places.data = data;
         var items = [];
@@ -232,48 +232,121 @@ function getValue()
 //press on the icons and send update about the deferen criterions
 function changeIcons()
 {
-    alert("change icons is working");
+    //alert("change icons is working");
     //chsnges all the icons to gray
-     $("#parking").attr('src', "images/parking_icon0.jpg");
-     $("#entrance").attr('src', "images/entrance_icon0.jpg");
-     $("#inside").attr('src', "images/inside_icon0.jpg");
-     $("#restroom").attr('src', "images/restroom_icon0.jpg");
-     
-     //changes the icons color to either green red or gray
-     // $("#parking").click(pickColorP());
-     // $("#entrance").click(pickColorE());
-     // $("#inside").click(pickColorI());
-     // $("#restroom").click(pickColorR());
+    $("#button1").hide();
+    $("#button2").show();
+    $("#parking").attr('src', "images/parking_icon0.jpg");
+    $("#entrance").attr('src', "images/entrance_icon0.jpg");
+    $("#inside").attr('src', "images/inside_icon0.jpg");
+    $("#restroom").attr('src', "images/restroom_icon0.jpg");
 
-     
-    //       document.getElementById("parking_icon").style.listStyleImage = "url("../images/space_icon.jpg")";
-
+    //changes the icons color to either green red or gray
     
-    // call server
-    $.getJSON("http://avivshay.milab.idc.ac.il/json.php",
-            {
-                'parking_icon': 'true'
-            });
+    curParking = places.current_place.parking;
+    curEntrance = places.current_place.entrance;
+    curInside = places.current_place.inside;
+    curRestroom = places.current_place.restroom;
+    $("#parking").click(pickColorP);
+    $("#entrance").click(pickColorE);
+    $("#inside").click(pickColorI);
+    $("#restroom").click(pickColorR);
+    
+    //sends the new icon statements
+    $("#button2").click(sendNewData);
+   
+}
+//Picks the color of the icon
+function pickColorP() {
+    if (curParking == 0) {
+        $("#parking").attr('src', "images/parking_icon1.jpg");
+        curParking = 1;
+    } else if (curParking == 1) {
+        $("#parking").attr('src', "images/parking_icon-1.jpg");
+        curParking = -1;
+    } else {
+        $("#parking").attr('src', "images/parking_icon0.jpg");
+        curParking = 0;
+    }
+}
+function pickColorE() {
+     if (curEntrance == 0) {
+        $("#entrance").attr('src', "images/entrance_icon1.jpg");
+        curEntrance = 1;
+    } else if (curEntrance == 1) {
+        $("#entrance").attr('src', "images/entrance_icon-1.jpg");
+        curEntrance = -1;
+    } else {
+        $("#entrance").attr('src', "images/entrance_icon0.jpg");
+        curEntrance = 0;
+    }
+}
+function pickColorI() {
+    if (curInside == 0) {
+        $("#inside").attr('src', "images/inside_icon1.jpg");
+        curInside = 1;
+    } else if (curInside == 1) {
+        $("#inside").attr('src', "images/inside_icon-1.jpg");
+        curInside = -1;
+    } else {
+        $("#inside").attr('src', "images/inside_icon0.jpg");
+        curInside = 0;
+    }
+}
+function pickColorR() {
+     if (curRestroom == 0) {
+        $("#restroom").attr('src', "images/restroom_icon1.jpg");
+        curRestroom = 1;
+    } else if (curRestroom == 1) {
+        $("#restroom").attr('src', "images/restroom_icon-1.jpg");
+        curRestroom = -1;
+    } else {
+        $("#restroom").attr('src', "images/restroom_icon0.jpg");
+        curRestroom = 0;
+    }
 }
 
 
-//Picks the color of the icon
-function pickColorP(){          
-          if (parking.src === images/parking_icon0.jpg){
-             $("#parking").attr('src', "images/parking_icon1.jpg");
-          }else if(parking.src === images/parking_icon1.jpg){
-               $("#parking").attr('src', "images/parking_icon-1.jpg");
-          } else {
-               $("#parking").attr('src', "images/parking_icon0.jpg");
-          }
-      }
-      function pickColorE(){          
-      }
-      function pickColorI(){          
-      }
-      function pickColorR(){          
-      }
-    
+//this method sends the new data that the user added about the place
+function sendNewData() {
+    $("#button2").hide();
+    $("#button1").show();
+   
+    $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=UPPL&googlePlacesId=5415c168a7f5d192404ba21d903590f7fed1a17e&parking=1&entrance=1&inside=1&restroom=1",
+    {
+           'googlePlaceId' : places.current_place.google_place_id,
+           'parking': curParking,
+           'entrance':curEntrance,
+           'inside': curInside,
+           'restroom': curRestroom
+     });
+     
+    //puts the right icon according to the data we have about the place
+    if (places.current_place.parking == undefined) {
+        $("#parking").attr('src', "images/parking_icon0.jpg");
+    } else {
+        $("#parking").attr('src', "images/parking_icon" + places.current_place.parking + ".jpg");
+    }
+    if (places.current_place.entrance == undefined) {
+        $("#entrance").attr('src', "images/entrance_icon0.jpg");
+    } else {
+        $("#entrance").attr('src', "images/entrance_icon" + places.current_place.entrance + ".jpg");
+    }
+    if (places.current_place.inside == undefined) {
+        $("#inside").attr('src', "images/inside_icon0.jpg");
+    } else {
+        $("#inside").attr('src', "images/inside_icon" + places.current_place.inside + ".jpg");
+    }
+    if (places.current_place.restroom == undefined) {
+        $("#restroom").attr('src', "images/restroom_icon0.jpg");
+    } else {
+        $("#restroom").attr('src', "images/restroom_icon" + places.current_place.restroom + ".jpg");
+    }
+
+}
+
+
+
 
 
 
@@ -287,7 +360,7 @@ function pickColorP(){
 
 function extraDetails(ref)
 {
-    alert("get extra details is working");
+    //alert("get extra details is working");
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPED&reference=" + ref,
             {},
             function(data) {
