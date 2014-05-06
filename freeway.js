@@ -37,24 +37,24 @@ $(document).on("click", ".place-btn", function(e) {
 
             //puts the right icon according to the data we have about the place
             if (places.current_place.parking == undefined) {
-                $("#parking").attr('src', "images/parking_icon0.jpg");
+                $("#parking").attr('src', "images/parking_icon0.png");
             } else {
-                $("#parking").attr('src', "images/parking_icon" + places.current_place.parking + ".jpg");
+                $("#parking").attr('src', "images/parking_icon" + places.current_place.parking + ".png");
             }
             if (places.current_place.entrance == undefined) {
-                $("#entrance").attr('src', "images/entrance_icon0.jpg");
+                $("#entrance").attr('src', "images/entrance_icon0.png");
             } else {
-                $("#entrance").attr('src', "images/entrance_icon" + places.current_place.entrance + ".jpg");
+                $("#entrance").attr('src', "images/entrance_icon" + places.current_place.entrance + ".png");
             }
             if (places.current_place.inside == undefined) {
-                $("#inside").attr('src', "images/inside_icon0.jpg");
+                $("#inside").attr('src', "images/inside_icon0.png");
             } else {
-                $("#inside").attr('src', "images/inside_icon" + places.current_place.inside + ".jpg");
+                $("#inside").attr('src', "images/inside_icon" + places.current_place.inside + ".png");
             }
             if (places.current_place.restroom == undefined) {
-                $("#restroom").attr('src', "images/restroom_icon0.jpg");
+                $("#restroom").attr('src', "images/restroom_icon0.png");
             } else {
-                $("#restroom").attr('src', "images/restroom_icon" + places.current_place.restroom + ".jpg");
+                $("#restroom").attr('src', "images/restroom_icon" + places.current_place.restroom + ".png");
             }
 
             //Calls the server for more details - photo and phone number of the place 
@@ -81,7 +81,7 @@ function getLocation()
 }
 function showPosition(position) {
     //alert("show position is working");
-    console.log(position, position.coords.longitude);
+    //console.log(position, position.coords.longitude);
 
     // call server
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPFL",
@@ -99,14 +99,6 @@ function showPosition(position) {
 
         // these arguments will be the correct icon to show (if there is no detail about this criterion)
         var p_icon, e_icon, i_icon, r_icon;
-        //console.log(place.data);
-        //  items.push('<table align="left" style="alignment-adjust: central; text-align: center; margin-left:203px; font-family: fantasy; font-size: large">' +
-        //       '<tr align="left">' +
-        //     '<td style="width: 125px ">חניה </td>' +
-        //   '<td style="width: 95px ">כניסה</td>' +
-        // '<td style="width: 150px ">מרחב במקום</td>' +
-        //'<td style="width: 130px; text-align: center; ">שירותים</td>' +
-        //  '</table></br></br></br>');
         $.each(data, function(key, val) {
             places.current_place = val;
 
@@ -138,10 +130,10 @@ function showPosition(position) {
                     "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.jpg\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" +
                     "data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + "</a>" +
                     //shows the correct icons of the specific place
-                    "<a href=\"#\"><img src=\"images/parking_icon" + p_icon + ".jpg\" id=\"parkingList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/entrance_icon" + e_icon + ".jpg\" id=\"entranceList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/inside_icon" + i_icon + ".jpg\" id=\"insideList\" style=\"width: 16%; margin-right: 5.6%;;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/restroom_icon" + r_icon + ".jpg\" id=\"restroomList\" style=\"width: 16%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/parking_icon" + p_icon + ".png\" id=\"parkingList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/entrance_icon" + e_icon + ".png\" id=\"entranceList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/inside_icon" + i_icon + ".png\" id=\"insideList\" style=\"width: 16%; margin-right: 5.6%;;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/restroom_icon" + r_icon + ".png\" id=\"restroomList\" style=\"width: 16%;\" /></a>" +
                     "</div>" +
                     "<div style=\"float:right; width: 47%; text-align: right; \">" +
                     "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
@@ -210,10 +202,10 @@ function getValue()
                     "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.jpg\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" +
                     "data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + "</a>" +
                     //shows the correct icons of the specific place
-                    "<a href=\"#\"><img src=\"images/parking_icon" + p_icon + ".jpg\" id=\"parkingList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/entrance_icon" + e_icon + ".jpg\" id=\"entranceList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/inside_icon" + i_icon + ".jpg\" id=\"insideList\" style=\"width: 16%; margin-right: 5.6%;;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/restroom_icon" + r_icon + ".jpg\" id=\"restroomList\" style=\"width: 16%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/parking_icon" + p_icon + ".png\" id=\"parkingList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/entrance_icon" + e_icon + ".png\" id=\"entranceList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/inside_icon" + i_icon + ".png\" id=\"insideList\" style=\"width: 16%; margin-right: 5.6%;;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/restroom_icon" + r_icon + ".png\" id=\"restroomList\" style=\"width: 16%;\" /></a>" +
                     "</div>" +
                     "<div style=\"float:right; width: 47%; text-align: right; \">" +
                     "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
@@ -243,13 +235,12 @@ function changeIcons()
     //chsnges all the icons to gray
     $("#button1").hide();
     $("#button2").show();
-    $("#parking").attr('src', "images/parking_icon0.jpg");
-    $("#entrance").attr('src', "images/entrance_icon0.jpg");
-    $("#inside").attr('src', "images/inside_icon0.jpg");
-    $("#restroom").attr('src', "images/restroom_icon0.jpg");
+    $("#parking").attr('src', "images/parking_icon0.png");
+    $("#entrance").attr('src', "images/entrance_icon0.png");
+    $("#inside").attr('src', "images/inside_icon0.png");
+    $("#restroom").attr('src', "images/restroom_icon0.png");
 
     //changes the icons color to either green red or gray
-    
     curParking = places.current_place.parking;
     curEntrance = places.current_place.entrance;
     curInside = places.current_place.inside;
@@ -266,49 +257,49 @@ function changeIcons()
 //Picks the color of the icon
 function pickColorP() {
     if (curParking == 0) {
-        $("#parking").attr('src', "images/parking_icon1.jpg");
+        $("#parking").attr('src', "images/parking_icon1.png");
         curParking = 1;
     } else if (curParking == 1) {
-        $("#parking").attr('src', "images/parking_icon-1.jpg");
+        $("#parking").attr('src', "images/parking_icon-1.png");
         curParking = -1;
     } else {
-        $("#parking").attr('src', "images/parking_icon0.jpg");
+        $("#parking").attr('src', "images/parking_icon0.png");
         curParking = 0;
     }
 }
 function pickColorE() {
      if (curEntrance == 0) {
-        $("#entrance").attr('src', "images/entrance_icon1.jpg");
+        $("#entrance").attr('src', "images/entrance_icon1.png");
         curEntrance = 1;
     } else if (curEntrance == 1) {
-        $("#entrance").attr('src', "images/entrance_icon-1.jpg");
+        $("#entrance").attr('src', "images/entrance_icon-1.png");
         curEntrance = -1;
     } else {
-        $("#entrance").attr('src', "images/entrance_icon0.jpg");
+        $("#entrance").attr('src', "images/entrance_icon0.png");
         curEntrance = 0;
     }
 }
 function pickColorI() {
     if (curInside == 0) {
-        $("#inside").attr('src', "images/inside_icon1.jpg");
+        $("#inside").attr('src', "images/inside_icon1.png");
         curInside = 1;
     } else if (curInside == 1) {
-        $("#inside").attr('src', "images/inside_icon-1.jpg");
+        $("#inside").attr('src', "images/inside_icon-1.png");
         curInside = -1;
     } else {
-        $("#inside").attr('src', "images/inside_icon0.jpg");
+        $("#inside").attr('src', "images/inside_icon0.png");
         curInside = 0;
     }
 }
 function pickColorR() {
      if (curRestroom == 0) {
-        $("#restroom").attr('src', "images/restroom_icon1.jpg");
+        $("#restroom").attr('src', "images/restroom_icon1.png");
         curRestroom = 1;
     } else if (curRestroom == 1) {
-        $("#restroom").attr('src', "images/restroom_icon-1.jpg");
+        $("#restroom").attr('src', "images/restroom_icon-1.png");
         curRestroom = -1;
     } else {
-        $("#restroom").attr('src', "images/restroom_icon0.jpg");
+        $("#restroom").attr('src', "images/restroom_icon0.png");
         curRestroom = 0;
     }
 }
@@ -330,24 +321,24 @@ function sendNewData() {
      
     //puts the right icon according to the data we have about the place
     if (places.current_place.parking == undefined) {
-        $("#parking").attr('src', "images/parking_icon0.jpg");
+        $("#parking").attr('src', "images/parking_icon0.png");
     } else {
-        $("#parking").attr('src', "images/parking_icon" + places.current_place.parking + ".jpg");
+        $("#parking").attr('src', "images/parking_icon" + places.current_place.parking + ".png");
     }
     if (places.current_place.entrance == undefined) {
-        $("#entrance").attr('src', "images/entrance_icon0.jpg");
+        $("#entrance").attr('src', "images/entrance_icon0.png");
     } else {
-        $("#entrance").attr('src', "images/entrance_icon" + places.current_place.entrance + ".jpg");
+        $("#entrance").attr('src', "images/entrance_icon" + places.current_place.entrance + ".png");
     }
     if (places.current_place.inside == undefined) {
-        $("#inside").attr('src', "images/inside_icon0.jpg");
+        $("#inside").attr('src', "images/inside_icon0.png");
     } else {
-        $("#inside").attr('src', "images/inside_icon" + places.current_place.inside + ".jpg");
+        $("#inside").attr('src', "images/inside_icon" + places.current_place.inside + ".png");
     }
     if (places.current_place.restroom == undefined) {
-        $("#restroom").attr('src', "images/restroom_icon0.jpg");
+        $("#restroom").attr('src', "images/restroom_icon0.png");
     } else {
-        $("#restroom").attr('src', "images/restroom_icon" + places.current_place.restroom + ".jpg");
+        $("#restroom").attr('src', "images/restroom_icon" + places.current_place.restroom + ".png");
     }
 
 }
@@ -374,10 +365,12 @@ function extraDetails(ref)
                 if (data.placePhotos == null) {
                     $('#place').css('background-image', 'url(images/restaurant.jpg)');
                     $('#place').css('no-repeat', "true");
+                   
                 } else {
                     var imageUrl = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + data.placePhotos + '&sensor=true&key=AIzaSyArToMuYtcxnymrrBjf2D7YabV2HjpoZuU';
                     console.log(imageUrl);
                     $('#place').css('background-image', 'url(' + imageUrl + ')');
+                    // $('#place').css('background-size',"cover");
                 }
 
 

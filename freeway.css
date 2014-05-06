@@ -14,7 +14,14 @@ body{
 }
 
 
+#headerDiv {
+
   
+  background-image: url('images/search_background.png');
+  background-size: cover;
+}
+
+
 
 
 input[type="search"]:focus{
