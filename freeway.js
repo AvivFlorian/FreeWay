@@ -101,7 +101,7 @@ function showPosition(position) {
         
         //the categories header for the list
         items.push('<div>'+
-                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
+                    '<table style="text-align: center; margin-left: 8%; width: 90%; border-bottom: 1px solid gray;">' +
                         '<tr>' +
                             '<td style="width: 9%; height: 50px;"> '+
                                 '<h3> חנייה</h3> '+
@@ -181,11 +181,11 @@ function showPosition(position) {
 function getValue()
 {
     //alert("get value from the typed text in the search box is working");
-    //console.log(searchField.value);
+    console.log(searchField.value);
     //return $("#searchField").val();
 
     var x = document.getElementById("searchField").value;
-
+ 
     // call server
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPPN",
             {
@@ -193,35 +193,15 @@ function getValue()
             },
     //creats the list of the restaurnt that came back from the search
     function(data) {
-        // alert("creats the list of the restaurnt that came back from the search")
+        alert(data);
         console.log(data);
         places.data = data;
         var items = [];
         $(".my-new-list").hide();
-        $("my-new-results-list").hide();
+        // alert("creats the list of the restaurnt that came back from the search")
+// $("my-new-results-list").hide();
         //the categories header for the list
-        items.push('<div>'+
-                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
-                        '<tr>' +
-                            '<td style="width: 9%; height: 50px;"> '+
-                                '<h3> חנייה</h3> '+
-                            '</td> '+
-                            '<td style="width: 7%; height: 50px;">'+
-                                '<h3>  כניסה</h3>' +
-                            '</td>' +
-                            '<td style="width: 2%; height: 50px;;">' +
-                                '<h3> מרחב במקום</h3>' + 
-                            '</td>' + 
-                            '<td style="width: 8%; height: 50px;">' + 
-                                '<h3> שירותים </h3>' +
-                            '</td>' + 
-                             '<td style="width: 15%; height: 50px;">' + 
-                             '</td>' + 
-                             '<td style="width: 15%; height: 50px;">' + 
-                                '<h2> מסעדות בקירבתי</h2>' +
-                            '</td>' + 
-                        '</tr>' +
-                    '</table>');
+        
         $.each(data, function(key, val) {
             places.current_place = val;
             //puts the right icon according to the data we have about the place
