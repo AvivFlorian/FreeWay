@@ -130,10 +130,10 @@ function showPosition(position) {
                     "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.jpg\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" +
                     "data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + "</a>" +
                     //shows the correct icons of the specific place
-                    "<a href=\"#\"><img src=\"images/parking_icon" + p_icon + ".png\" id=\"parkingList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/entrance_icon" + e_icon + ".png\" id=\"entranceList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/inside_icon" + i_icon + ".png\" id=\"insideList\" style=\"width: 16%; margin-right: 5.6%;;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/restroom_icon" + r_icon + ".png\" id=\"restroomList\" style=\"width: 16%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/parking_icon" + p_icon + ".png\" id=\"parkingList\" style=\"width: 18%; margin-right: 3.6%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/entrance_icon" + e_icon + ".png\" id=\"entranceList\" style=\"width: 18%; margin-right: 3.6%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/inside_icon" + i_icon + ".png\" id=\"insideList\" style=\"width: 18%; margin-right: 3.6%;;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/restroom_icon" + r_icon + ".png\" id=\"restroomList\" style=\"width: 18%;\" /></a>" +
                     "</div>" +
                     "<div style=\"float:right; width: 47%; text-align: right; \">" +
                     "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
@@ -202,10 +202,10 @@ function getValue()
                     "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.jpg\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" +
                     "data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + "</a>" +
                     //shows the correct icons of the specific place
-                    "<a href=\"#\"><img src=\"images/parking_icon" + p_icon + ".png\" id=\"parkingList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/entrance_icon" + e_icon + ".png\" id=\"entranceList\" style=\"width: 16%; margin-right: 5.6%;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/inside_icon" + i_icon + ".png\" id=\"insideList\" style=\"width: 16%; margin-right: 5.6%;;\" /></a>" +
-                    "<a href=\"#\"><img src=\"images/restroom_icon" + r_icon + ".png\" id=\"restroomList\" style=\"width: 16%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/parking_icon" + p_icon + ".png\" id=\"parkingList\" style=\"width: 18%; margin-right: 3.6%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/entrance_icon" + e_icon + ".png\" id=\"entranceList\" style=\"width: 18%; margin-right: 3.6%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/inside_icon" + i_icon + ".png\" id=\"insideList\" style=\"width: 18%; margin-right: 3.6%;;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/restroom_icon" + r_icon + ".png\" id=\"restroomList\" style=\"width: 18%;\" /></a>" +
                     "</div>" +
                     "<div style=\"float:right; width: 47%; text-align: right; \">" +
                     "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
@@ -310,9 +310,9 @@ function sendNewData() {
     $("#button2").hide();
     $("#button1").show();
    
-    $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=UPPL&googlePlacesId=5415c168a7f5d192404ba21d903590f7fed1a17e&parking=1&entrance=1&inside=1&restroom=1",
+    $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=UPPL",
     {
-           'googlePlaceId' : places.current_place.google_place_id,
+           'googlePlaceId': places.current_place.google_place_id,
            'parking': curParking,
            'entrance':curEntrance,
            'inside': curInside,
