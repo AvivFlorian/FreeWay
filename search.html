@@ -12,6 +12,8 @@
         <script src="phonegap.js" type="text/javascript"></script>
         <script src="freeway.js" type="text/javascript"></script>
 
+        <!-- in order to hide the underline of links -->
+        <style type="text/css">a {text-decoration: none}</style>
         <link rel="stylesheet" href="freeway.css" />
     </head>
 
@@ -41,6 +43,7 @@
             <div>
                 <input style="border:2px solid white; color: white; font-size: 1.5rem; border-radius: 12px; padding: 2%; width: 90%; background: transparent;" type="search" name="searchField" id="searchField" onchange="getValue()" placeholder="חפש מסעדה נגישה" list="dataList1">
             </div>
+            
         </div>
 
         <!--The list of places around me  -->
@@ -80,31 +83,30 @@
             </div>
 
             <!--The icons div -->
-            <div style="text-align: center;">
+                <div style="clear:both; margin-bottom: 1px; font-size:0; text-align: center;">
+                    <img src="" id="parking" style="width: 60px; height: 60px; margin-right: 10%; "/> 
+                    <img src="" id="entrance" style="width: 60px; height: 60px; margin-right: 10%;"/>
+                    <img src="" id="inside" style="width: 60px; height: 60px; margin-right: 10%;"/>
+                    <img src="" id="restroom" style="width: 60px; height: 60px;"/>
+                </div>
+             <div style="text-align: center;">
                 <div>
-                    <table style="text-align: center;">
+                    <table style="text-align: center; width: 100%">
                         <tr>
-                            <td style="width: 50px; height: 50px; margin-right: 35px;">
-                                חנייה
+                            <td style="width: 25%; height: 50px;">
+                                <h2> חנייה</h2>
                             </td>
-                            <td style="width: 50px; height: 50px; margin-right: 35px;">
-                                דלת כניסה
+                            <td style="width: 25%; height: 50px;">
+                              <h2 כניסה</h2>
                             </td>
-                            <td style="width: 50px; height: 50px; margin-right: 35px;">
-                                מרחב במקום
+                            <td style="width: 25%; height: 50px;;">
+                               <h2> מרחב במקום</h2>
                             </td>
-                            <td style="width: 50px; height: 50px;">
-                                שירותים
+                            <td style="width: 25%; height: 50px;">
+                               <h2> שירותים </h2>
                             </td>
                         </tr>
                     </table>
-                    
-                </div>
-                <div style="clear:both; margin-bottom: 20px; font-size:0;">
-                    <img src="" id="parking" style="width: 60px; height: 60px; margin-right: 45px; "/> 
-                    <img src="" id="entrance" style="width: 60px; height: 60px; margin-right: 45px;"/>
-                    <img src="" id="inside" style="width: 60px; height: 60px; margin-right: 45px;"/>
-                    <img src="" id="restroom" style="width: 60px; height: 60px;"/>
                 </div>
                 <!--<a style="height: 20px; width:170px; border: 2px solid #99d7be; display: inline-block;">אשר נגישות</a>-->
                 <a id="button1" class="myButton1" style="height: 20px; width:170px; border: 2px solid #99d7be; display: inline-block;">לחץ לעדכון הנגישות</a>

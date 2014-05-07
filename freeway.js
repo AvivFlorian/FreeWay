@@ -8,9 +8,8 @@ var curRestroom;
 
 function init(){
 //alert("init is working");
-document.addEventListener("deviceready", getLocation, false);
-
-//getLocation();
+//document.addEventListener("deviceready", getLocation, false);
+getLocation();
 
 }
 $(document).on("click", ".place-btn", function(e) {
@@ -99,6 +98,32 @@ function showPosition(position) {
 
         // these arguments will be the correct icon to show (if there is no detail about this criterion)
         var p_icon, e_icon, i_icon, r_icon;
+        
+        //the categories header for the list
+        items.push('<div>'+
+                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
+                        '<tr>' +
+                            '<td style="width: 9%; height: 50px;"> '+
+                                '<h3> חנייה</h3> '+
+                            '</td> '+
+                            '<td style="width: 7%; height: 50px;">'+
+                                '<h3>  כניסה</h3>' +
+                            '</td>' +
+                            '<td style="width: 2%; height: 50px;;">' +
+                                '<h3> מרחב במקום</h3>' + 
+                            '</td>' + 
+                            '<td style="width: 8%; height: 50px;">' + 
+                                '<h3> שירותים </h3>' +
+                            '</td>' + 
+                             '<td style="width: 15%; height: 50px;">' + 
+                             '</td>' + 
+                             '<td style="width: 15%; height: 50px;">' + 
+                                '<h2> מסעדות בקירבתי</h2>' +
+                            '</td>' + 
+                        '</tr>' +
+                    '</table>');
+        
+        //this loop shows all the restaurants around me
         $.each(data, function(key, val) {
             places.current_place = val;
 
@@ -124,7 +149,7 @@ function showPosition(position) {
                 r_icon = places.current_place.restroom;
             }
 
-            items.push("<ul style=\"padding:0; margin:0;\">" +
+            items.push("<ul style=\"padding:0; margin:0;\">"+
                     "<li style=\" height:14%; border-bottom: 1px solid gray;\"" + ">" +
                     "<div style=\"" + "float:left; width: 53%;\"" + ">" +
                     "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.jpg\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" +
@@ -173,6 +198,30 @@ function getValue()
         places.data = data;
         var items = [];
         $(".my-new-list").hide();
+        $("my-new-results-list").hide();
+        //the categories header for the list
+        items.push('<div>'+
+                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
+                        '<tr>' +
+                            '<td style="width: 9%; height: 50px;"> '+
+                                '<h3> חנייה</h3> '+
+                            '</td> '+
+                            '<td style="width: 7%; height: 50px;">'+
+                                '<h3>  כניסה</h3>' +
+                            '</td>' +
+                            '<td style="width: 2%; height: 50px;;">' +
+                                '<h3> מרחב במקום</h3>' + 
+                            '</td>' + 
+                            '<td style="width: 8%; height: 50px;">' + 
+                                '<h3> שירותים </h3>' +
+                            '</td>' + 
+                             '<td style="width: 15%; height: 50px;">' + 
+                             '</td>' + 
+                             '<td style="width: 15%; height: 50px;">' + 
+                                '<h2> מסעדות בקירבתי</h2>' +
+                            '</td>' + 
+                        '</tr>' +
+                    '</table>');
         $.each(data, function(key, val) {
             places.current_place = val;
             //puts the right icon according to the data we have about the place
