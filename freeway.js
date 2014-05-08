@@ -26,10 +26,11 @@ $(document).on("click", ".place-btn", function(e) {
             $("#place").find(".address").text(places.current_place.address);
             $("#place").find(".phone").text(places.current_place.phone);
             $("#place").find(".url").text(places.current_place.url);
-            $("#app").show();
+            $("#headerDiv").hide();
+            $("#resPage").show();
             $(".my-new-list").hide();
             $(".my-new-results-list").hide();
-            $(".placesAround").hide();
+            //$(".placesAround").hide();
             $("#logoPic").hide();
             $("#button1").click(changeIcons);
 
@@ -87,7 +88,7 @@ function showPosition(position) {
             {
                 'lat': position.coords.latitude,
                 'lng': position.coords.longitude,
-                'search': getValue()
+               // 'search': getValue()
             },
     //creats the list of the restaurnt around me
     function(data) {
@@ -100,8 +101,8 @@ function showPosition(position) {
         var p_icon, e_icon, i_icon, r_icon;
         
         //the categories header for the list
-        items.push('<div>'+
-                    '<table style="text-align: center; margin-left: 8%; width: 90%; border-bottom: 1px solid gray;">' +
+        items.push('<div style="background-color: #ddddd1">'+
+                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
                         '<tr>' +
                             '<td style="width: 9%; height: 50px;"> '+
                                 '<h3> חנייה</h3> '+
@@ -180,30 +181,55 @@ function showPosition(position) {
 // sends the typed text from the search box to the server
 function getValue()
 {
-    //alert("get value from the typed text in the search box is working");
-    console.log(searchField.value);
-    //return $("#searchField").val();
-
+   $(".my-new-results-list").hide();
+    console.log(searchField);
+    //return $("#searchField").val();  
     var x = document.getElementById("searchField").value;
- 
+  
     // call server
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPPN",
             {
                 'searchField': x
             },
+    
     //creats the list of the restaurnt that came back from the search
-    function(data) {
-        alert(data);
+    function(data) {  
         console.log(data);
         places.data = data;
         var items = [];
         $(".my-new-list").hide();
-        // alert("creats the list of the restaurnt that came back from the search")
-// $("my-new-results-list").hide();
-        //the categories header for the list
+           
+
+
+
+        //the categories header for the list of the search result
+        items.push('<div style="background-color: #ddddd1">'+
+                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
+                        '<tr>' +
+                            '<td style="width: 9%; height: 50px;"> '+
+                                '<h3> חנייה</h3> '+
+                            '</td> '+
+                            '<td style="width: 7%; height: 50px;">'+
+                                '<h3>  כניסה</h3>' +
+                            '</td>' +
+                            '<td style="width: 2%; height: 50px;;">' +
+                                '<h3> מרחב במקום</h3>' + 
+                            '</td>' + 
+                            '<td style="width: 8%; height: 50px;">' + 
+                                '<h3> שירותים </h3>' +
+                            '</td>' + 
+                             '<td style="width: 15%; height: 50px;">' + 
+                             '</td>' + 
+                             '<td style="width: 15%; height: 50px;">' + 
+                                '<h2> מסעדות בקירבתי</h2>' +
+                            '</td>' + 
+                        '</tr>' +
+                    '</table>');
         
+        //shows all the results of the search
         $.each(data, function(key, val) {
             places.current_place = val;
+           
             //puts the right icon according to the data we have about the place
             if (places.current_place.parking == undefined) {
                 p_icon = 0;
@@ -260,7 +286,7 @@ function getValue()
 //press on the icons and send update about the deferen criterions
 function changeIcons()
 {
-    //alert("change icons is working");
+   
     //chsnges all the icons to gray
     $("#button1").hide();
     $("#button2").show();
@@ -382,17 +408,17 @@ function sendNewData() {
 //   function showMap()
 // {
 //    initialize("app");
-//$("#app").hide();
+//$("#resPage").hide();
 // }
 
 function extraDetails(ref)
 {
-    //alert("get extra details is working");
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPED&reference=" + ref,
             {},
             function(data) {
                 if (data.placePhotos == null) {
-                    $('#place').css('background-image', 'url(images/restaurant.jpg)');
+                    $('#place').css('background-image', 'url(images/search_background.png)');
+                    $('#place').css('background-size', 'cover');
                     $('#place').css('no-repeat', "true");
                    
                 } else {
@@ -413,6 +439,9 @@ function extraDetails(ref)
 
             }
     );
-}
-
+ }
+// function showComments(){
+     
+    
+ //}
 

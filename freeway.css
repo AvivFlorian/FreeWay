@@ -16,7 +16,6 @@ body{
 
 #headerDiv {
 
-  
   background-image: url('images/search_background.png');
   background-size: cover;
 }
@@ -31,12 +30,12 @@ input[type="search"]:focus{
 
 
 .my-new-list {
-    margin-top: 11px;
+    margin-top: 0px;
     margin-left: -45px;
 }
 
 .my-new-results-list {
-    margin-top: 11px;
+    margin-top: 0px;
     margin-left: -45px;
 }
 li {
@@ -44,6 +43,7 @@ li {
     padding: 10px;
     overflow: auto;
     text-align: center;
+    background-color: #f5f4ef;
 }
 
 li:hover {
@@ -59,7 +59,8 @@ li:hover {
     //background-image:url('../images/restaurant.jpg');
     background-repeat: no-repeat; 
     background-position: center;
-    height: 155px;
+    height: 150px;
+    margin-bottom: 5%;
 }
 
 .myButton1 {
