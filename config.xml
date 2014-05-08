@@ -9,7 +9,7 @@
     <!-- versionCode is optional and Android only -->
 
     <name>FreeWay</name>
-     <icon src="images/freeWayLogo.png" width="128" height="128"/>
+     <icon src="images/colorsIcon.png" width="128" height="128"/>
     <description>
        The FreeWay App 
     </description>

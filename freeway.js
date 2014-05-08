@@ -287,13 +287,16 @@ function getValue()
 function changeIcons()
 {
    
-    //chsnges all the icons to gray
+  
     $("#button1").hide();
     $("#button2").show();
+    
+    //chsnges all the icons to gray
     $("#parking").attr('src', "images/parking_icon0.png");
     $("#entrance").attr('src', "images/entrance_icon0.png");
     $("#inside").attr('src', "images/inside_icon0.png");
     $("#restroom").attr('src', "images/restroom_icon0.png");
+    
 
     //changes the icons color to either green red or gray
     curParking = places.current_place.parking;
@@ -363,8 +366,22 @@ function pickColorR() {
 //this method sends the new data that the user added about the place
 function sendNewData() {
     $("#button2").hide();
-    $("#button1").show();
    
+   //shows the thank you message for 5 seconds
+    $("#ThankYouMessage").show();
+        setTimeout(function() { $("#ThankYouMessage").hide(); }, 5000);
+  
+    //hides the icons for 5 seconds
+    $("#iconsDiv").hide();
+    setTimeout(function() { $("#iconsDiv").show(); }, 5000);
+   
+    //shows button1 after 5 seconds
+    setTimeout(function() { $("#button1").show(); }, 5000);
+  
+    //hides the categories table for 5 seconds
+    $("#curPlaceTable").hide();
+    setTimeout(function() { $("#curPlaceTable").show(); }, 5000);
+ 
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=UPPL",
     {
            'googlePlaceId': places.current_place.google_place_id,
