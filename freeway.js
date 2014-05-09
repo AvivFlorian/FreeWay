@@ -532,8 +532,17 @@ function hideComments(){
    
    
 //this function lets the user add a comment to a restaurant
-function addTextComments(){
-    $(".addTextComments").show();
+function addTextComment(){
+    $(".addTextComment").show();
+    $("#add_comment1").hide();
+    $("#add_comment2").show();
+}
+
+//this function lets the user hide the comment form
+function hideTextComment(){
+    $(".addTextComment").hide();
+    $("#add_comment1").show();
+    $("#add_comment2").hide();
 }
 
 //this function sends the new comment to the server

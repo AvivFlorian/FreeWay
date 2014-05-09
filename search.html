@@ -124,7 +124,8 @@
             -->
             <!--The pictures div -->
             <div  style="background:#c0c0b4; height: 80px; color: white;margin-top: 30px;">
-                <img onclick="addTextComments()" src="images/add_comment.jpg" id="add_comment" style="width: 30%; height: 80px; margin-right: 0px;" />
+                <img onclick="addTextComment()" src="images/add_comment.jpg" id="add_comment1" style="width: 30%; height: 80px; margin-right: 0px;" />
+                <img onclick="hideTextComment()" src="images/add_comment.jpg" id="add_comment2" style="width: 30%; height: 80px; margin-right: 0px; display: none;" />
                 <img onclick="addPictures()" src="images/camera.jpg" id="camera" style="width: 30%; height: 80px; margin-right: 0px;" />
                 <img src="images/res2.jpg" id="resPic" style="width: 30%; height: 80px; margin-right: 0px;" />
             </div>
@@ -138,7 +139,7 @@
                  <div class="noCommentsMessage">
                     <h1>אין עדין ביקורות על המקום, נשמח שתוסיף</h1>
                  </div>
-                <div class="addTextComments" style="display:none; text-align: center; ">
+                <div class="addTextComment" style="display:none; text-align: center; ">
                     <form>
                         <textarea rows="1" cols="50" id="nameTextBox" placeholder="הכנס את שמך המלא"></textarea>
                         <textarea rows="10" cols="50" id="commentTextBox" placeholder="...הכנס כאן את הביקורת"></textarea>
