@@ -286,3 +286,7 @@ textarea {
    font-size: 10pt;
    font-family: Arial;
 } 
+
+placeholder{
+    text-align: right;
+}
