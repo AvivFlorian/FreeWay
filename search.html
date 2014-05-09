@@ -48,7 +48,11 @@
             </div>
             
         </div>
-
+        <!-- the no results message div-->
+        <div class="searchNotFound">
+            </br></br></br></br></br>
+            <h1>לא נמצאו תוצאות לחיפוש</h1>
+        </div>
       
        
      <!--just for testing
@@ -61,7 +65,7 @@
         <div data-role="page" id="resPage" style="display: none; ">  
            
             <!--The header div in a restaurant page with the search box  -->
-            <div id="newSearch" style="background-color: #2bb98b; height: 75px; color: white; line-height: 100px; text-align: center;">
+            <div id="newSearch" style="background-color: #2bb98b; height: 70px; color: white; line-height: 100px; text-align: center;">
                 <div>
                   <img src="images/freeWayLogo.png" style="width:15%; margin-right:2%;" />
                   <input style="text-align: right; border:2px solid white; color: white; font-size: 1.5rem; border-radius: 12px; padding: 1%; width: 70%; background: transparent; " type="search" name="searchField" id="searchField" onchange="getValue()" placeholder="חפש מסעדה נגישה" list="dataList1">
@@ -70,7 +74,7 @@
             <!--The background photo div -->
             <div id="place">
                 <div id="resBack">
-                    </br>
+                    </br></br></br></br></br></br>
                     <div class="name" style="text-align: center; margin-bottom: 5px; font-size:28px; color: white; font-family: Arial;"></div>
                     <div class="address" style="text-align: center; margin-bottom: 5px; font-size:14px; color: white; font-family: Arial;"></div>
                     <div class="phone" style="text-align: center; margin-bottom: 5px; font-size:14px; color: white; font-family: Arial;"></div>
@@ -79,7 +83,8 @@
             </div>
 
              <!--the thank you for updating our data base message-->
-            <div id="ThankYouMessage" style="display: none; width: 100%; height: 245px; text-align: center;">
+            <div class="thankYouMessage">
+                </br></br></br></br></br></br>
                 <h1>העדכון נקלט בהצלחה</h1>
                 <h1>תודה שתרמת מידע למאגר שלנו</h1>
             </div>
@@ -122,24 +127,20 @@
             </div>
             -->
             <!--The pictures div -->
-            <div  style="background:#5b5754; height: 80px; color: white;margin-top: 30px;">
-                <a href="addPic()">
-                    <img src="images/add_pic.jpg" id="entrance" style="width: 100px; height: 80px; margin-right: 0px;" />
-                </a>
-                <img src="images/res1.jpg" id="entrance" style="width: 100px; height: 80px; margin-right: 0px;" />
-                <img src="images/res2.jpg" id="entrance" style="width: 100px; height: 80px; margin-right: 0px;" />
+            <div  style="background:#c0c0b4; height: 80px; color: white;margin-top: 30px;">
+                <img onclick="addComments()" src="images/add_comment.jpg" id="add_comment" style="width: 30%; height: 80px; margin-right: 0px;" />
+                <img onclick="addPictures()" src="images/camera.jpg" id="camera" style="width: 30%; height: 80px; margin-right: 0px;" />
+                <img src="images/res2.jpg" id="resPic" style="width: 30%; height: 80px; margin-right: 0px;" />
             </div>
 
             <!--The comments header div -->
             <div  style="background:#f5f4ef; height: 50px; color: white;  line-height: 50px; text-align: center;">
-                <a>
+                 <a>
                     <img onclick="showComments()" src="images/comments.jpg" id="comments" style="width: 180px; height: 30px; margin-left: 200px; " /> 
-                </a>
-            </div>
-            <!--The comments div -->
-            <div  style="background:#ffffff; height: 220px; color: black;">
-                <div class="comments" style="text-align: center; margin-bottom: 5px; font-size:28px; color: black; font-family: David;"></div>
-
+                 </a>
+                 <div class="noCommentsMessage">
+                    <h1>אין עדין ביקורות על המקום, נשמח שתוסיף</h1>
+                 </div>
             </div>
         </div>
     </body>

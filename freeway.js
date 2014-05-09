@@ -101,8 +101,8 @@ function showPosition(position) {
         var p_icon, e_icon, i_icon, r_icon;
         
         //the categories header for the list
-        items.push('<div style="background-color: #ddddd1">'+
-                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
+        items.push('<div  style="background-color: #ddddd1">'+
+                    '<table id="catTable" style="text-align: center; margin-left: 8%; width: 90%;">' +
                         '<tr>' +
                             '<td style="width: 9%; height: 50px;"> '+
                                 '<h3> חנייה</h3> '+
@@ -153,7 +153,7 @@ function showPosition(position) {
             items.push("<ul style=\"padding:0; margin:0;\">"+
                     "<li style=\" height:14%; border-bottom: 1px solid gray;\"" + ">" +
                     "<div style=\"" + "float:left; width: 53%;\"" + ">" +
-                    "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.jpg\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" +
+                    "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.png\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" +
                     "data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + "</a>" +
                     //shows the correct icons of the specific place
                     "<a href=\"#\"><img src=\"images/parking_icon" + p_icon + ".png\" id=\"parkingList\" style=\"width: 18%; margin-right: 3.6%;\" /></a>" +
@@ -182,6 +182,7 @@ function showPosition(position) {
 function getValue()
 {
    $(".my-new-results-list").hide();
+   $(".my-new-list").hide();
     console.log(searchField);
     //return $("#searchField").val();  
     var x = document.getElementById("searchField").value;
@@ -195,16 +196,23 @@ function getValue()
     //creats the list of the restaurnt that came back from the search
     function(data) {  
         console.log(data);
+        if (data.length == 0){
+            $(".searchNotFound").show();
+            setTimeout(function() { $(".searchNotFound").hide(); }, 5000);
+            
+            $("#catTable").hide();
+            setTimeout(function() { $("#catTable").show(); }, 5000);
+
+            $(".my-new-list").hide();
+            setTimeout(function() { $(".my-new-list").show(); }, 5000);
+        }
         places.data = data;
         var items = [];
         $(".my-new-list").hide();
-           
-
-
-
+   
         //the categories header for the list of the search result
-        items.push('<div style="background-color: #ddddd1">'+
-                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
+        items.push('<div  style="background-color: #ddddd1">'+
+                    '<table id="catTable" style="text-align: center; margin-left: 8%; width: 90%;">' +
                         '<tr>' +
                             '<td style="width: 9%; height: 50px;"> '+
                                 '<h3> חנייה</h3> '+
@@ -254,7 +262,7 @@ function getValue()
             items.push("<ul style=\"padding:0; margin:0;\">" +
                     "<li style=\" height:14%; border-bottom: 1px solid gray;\"" + ">" +
                     "<div style=\"" + "float:left; width: 53%;\"" + ">" +
-                    "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.jpg\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" +
+                    "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.png\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" +
                     "data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + "</a>" +
                     //shows the correct icons of the specific place
                     "<a href=\"#\"><img src=\"images/parking_icon" + p_icon + ".png\" id=\"parkingList\" style=\"width: 18%; margin-right: 3.6%;\" /></a>" +
@@ -368,8 +376,8 @@ function sendNewData() {
     $("#button2").hide();
    
    //shows the thank you message for 5 seconds
-    $("#ThankYouMessage").show();
-        setTimeout(function() { $("#ThankYouMessage").hide(); }, 5000);
+    $(".thankYouMessage").show();
+        setTimeout(function() { $(".thankYouMessage").hide(); }, 5000);
   
     //hides the icons for 5 seconds
     $("#iconsDiv").hide();
@@ -457,8 +465,57 @@ function extraDetails(ref)
             }
     );
  }
-// function showComments(){
-     
+//this function shows all the comments about the current place
+function showComments(){
+    $(".comments-list").hide();
+    var comments = [];
+   if( places.current_place.comments.length == 0){
+        
+        //hides the comment picture for 5 sec
+        $("#comments").hide();
+        setTimeout(function() { $("#comments").show(); }, 5000);
+        
+        //shoes the noCommentMessage for 5 sec
+        $(".noCommentsMessage").show();
+        setTimeout(function() { $(".noCommentsMessage").hide(); }, 5000);
+   } else {
+    console.log(places.current_place.comments[0].reviewerName);
+  console.log( places.current_place.comments.length);
+  for (var i = 0; i < places.current_place.comments.length; i++) {
+      comments.push('<table border="1" style="margin-left: -25px; width: 100%; color: #d3d3d3">'+
+                        '<tr>' +
+                           ' <td style="width: 25%; height: 50px; text-align: left;">' +
+                           '    <h4>09.05.14 </h4>' +
+                           ' </td>' +
+                           ' <td style="width: 50%; height: 50px;">' +
+                           ' </td>' +
+                           ' <td style="width: 25%; height: 50px; text-align: right;">' +
+                           '    <h4> Aviv Florian</h4>' +
+                           ' </td>'+
+	 	        '</tr>' +
+	            '</table>');	
+      
+ // comments.push("<ul style=\"padding:0; margin:0;\">"+
+       //             "<li style=\" height:14%; border-bottom: 1px solid gray;\"" + ">" +
+         //           "<div style=\"" + "float:left; width: 53%;\"" + ">" +
+           //             '<div>'+places.current_place.comments[i].reviewerName +'</div>'+
+            //        "</div>" +
+              //      "</li>" +
+                //    "</ul>");
+           
+        $("<ul/>", {
+            "class": "comments-list",
+            html: comments.join("")
+        }).appendTo("body");
+    }
+}
+}
+//this function lets you add a comment to a restaurant
+//function addComments(){
     
- //}
+//}
 
+//this function let you add pictures to the current place
+//function addPictures(){
+    
+//}
