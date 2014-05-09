@@ -12,6 +12,10 @@ function init(){
 getLocation();
 
 }
+
+//makes the back button go th the main page instead of going to the splash page
+
+
 $(document).on("click", ".place-btn", function(e) {
     //alert("on click is working")
     e.preventDefault();
@@ -101,8 +105,8 @@ function showPosition(position) {
         var p_icon, e_icon, i_icon, r_icon;
         
         //the categories header for the list
-        items.push('<div  style="background-color: #ddddd1">'+
-                    '<table id="catTable" style="text-align: center; margin-left: 8%; width: 90%;">' +
+        items.push('<div class="catTable" style="background-color: #ddddd1">'+
+                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
                         '<tr>' +
                             '<td style="width: 9%; height: 50px;"> '+
                                 '<h3> חנייה</h3> '+
@@ -200,8 +204,8 @@ function getValue()
             $(".searchNotFound").show();
             setTimeout(function() { $(".searchNotFound").hide(); }, 5000);
             
-            $("#catTable").hide();
-            setTimeout(function() { $("#catTable").show(); }, 5000);
+            $(".catTable").hide();
+            setTimeout(function() { $(".catTable").show(); }, 5000);
 
             $(".my-new-list").hide();
             setTimeout(function() { $(".my-new-list").show(); }, 5000);
@@ -211,8 +215,8 @@ function getValue()
         $(".my-new-list").hide();
    
         //the categories header for the list of the search result
-        items.push('<div  style="background-color: #ddddd1">'+
-                    '<table id="catTable" style="text-align: center; margin-left: 8%; width: 90%;">' +
+        items.push('<div class="catTable" style="background-color: #ddddd1">'+
+                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
                         '<tr>' +
                             '<td style="width: 9%; height: 50px;"> '+
                                 '<h3> חנייה</h3> '+
@@ -482,18 +486,21 @@ function showComments(){
     console.log(places.current_place.comments[0].reviewerName);
   console.log( places.current_place.comments.length);
   for (var i = 0; i < places.current_place.comments.length; i++) {
-      comments.push('<table border="1" style="margin-left: -25px; width: 100%; color: #d3d3d3">'+
+      comments.push('<table style="margin-bottom: -20px; margin-left: -25px; width: 100%; color: #d3d3d3">'+
                         '<tr>' +
                            ' <td style="width: 25%; height: 50px; text-align: left;">' +
-                           '    <h4>09.05.14 </h4>' +
+                           '    <h4>'+ places.current_place.comments[0].date +'</h4>' +
                            ' </td>' +
                            ' <td style="width: 50%; height: 50px;">' +
                            ' </td>' +
                            ' <td style="width: 25%; height: 50px; text-align: right;">' +
-                           '    <h4> Aviv Florian</h4>' +
+                           '    <h4>'+places.current_place.comments[0].reviewerName+'</h4>' +
                            ' </td>'+
 	 	        '</tr>' +
-	            '</table>');	
+	            '</table>'+
+                    '<div style="border-bottom: 1px solid gray; width:90%; text-align: right; margin-right: 10%;">' +
+                        '<h3>'+ places.current_place.comments[0].commentText+'</h3>'+
+                    '</div>');	
       
  // comments.push("<ul style=\"padding:0; margin:0;\">"+
        //             "<li style=\" height:14%; border-bottom: 1px solid gray;\"" + ">" +
