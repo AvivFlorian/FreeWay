@@ -92,7 +92,7 @@ function showPosition(position) {
             {
                 'lat': position.coords.latitude,
                 'lng': position.coords.longitude,
-               // 'search': getValue()
+               
             },
     //creats the list of the restaurnt around me
     function(data) {
@@ -289,7 +289,6 @@ function getValue()
             html: items.join("")
         }).appendTo("body");
     });
-
 }
 
 
@@ -397,6 +396,7 @@ function sendNewData() {
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=UPPL",
     {
            'googlePlaceId': places.current_place.google_place_id,
+           'name': places.current_place.name,
            'parking': curParking,
            'entrance':curEntrance,
            'inside': curInside,
@@ -471,8 +471,10 @@ function extraDetails(ref)
  }
 //this function shows all the comments about the current place
 function showComments(){
-    $(".comments-list").hide();
-    var comments = [];
+   $(".comments-list").hide();
+   $("#comments1").hide();
+   $("#comments2").show();
+   var comments = [];
    if( places.current_place.comments.length == 0){
         
         //hides the comment picture for 5 sec
@@ -515,12 +517,40 @@ function showComments(){
             html: comments.join("")
         }).appendTo("body");
     }
+   }
 }
+
+//this function hides all the comments about the current place
+function hideComments(){
+   $(".comments-list").hide();
+   $("#comments2").hide();
+   $("#comments1").show();
+ }
+   
+   
+//this function lets the user add a comment to a restaurant
+function addTextComments(){
+    $(".addTextComments").show();
 }
-//this function lets you add a comment to a restaurant
-//function addComments(){
-    
-//}
+
+//this function sends the new comment to the server
+function sendComment(){
+    $(".addTextComments").hide();
+   
+    // call server
+    $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=ADRE",
+          {
+            'googlePlaceId': places.current_place.google_place_id,
+            'comment': document.getElementById("commentTextBox").value,
+            'date': "",
+            'reviewerName': document.getElementById("nameTextBox").value
+      });
+   
+    //shows the thank you message for 5 seconds
+    $(".thankYouTextMessage").show();
+    setTimeout(function() { $(".thankYouTextMessage").hide(); }, 5000);
+       
+}
 
 //this function let you add pictures to the current place
 //function addPictures(){
