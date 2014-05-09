@@ -8,8 +8,8 @@ var curRestroom;
 
 function init(){
 //alert("init is working");
-document.addEventListener("deviceready", getLocation, false);
-//getLocation();
+//document.addEventListener("deviceready", getLocation, false);
+getLocation();
 
 }
 
@@ -104,7 +104,7 @@ function showPosition(position) {
         // these arguments will be the correct icon to show (if there is no detail about this criterion)
         var p_icon, e_icon, i_icon, r_icon;
         
-        //the categories header for the list
+        //the categories header of the list
         items.push('<div class="catTable" style="background-color: #ddddd1">'+
                     '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
                         '<tr>' +
@@ -126,7 +126,8 @@ function showPosition(position) {
                                 '<h2> מסעדות בקירבתי</h2>' +
                             '</td>' + 
                         '</tr>' +
-                    '</table>');
+                    '</table>'+
+                    '</div>');
         
         //this loop shows all the restaurants around me
         $.each(data, function(key, val) {
@@ -184,11 +185,11 @@ function showPosition(position) {
 
 // sends the typed text from the search box to the server
 function getValue()
-{
+{  
    $(".my-new-results-list").hide();
    $(".my-new-list").hide();
-    console.log(searchField);
-    //return $("#searchField").val();  
+   $(".catTable").hide();
+    
     var x = document.getElementById("searchField").value;
   
     // call server
@@ -204,7 +205,7 @@ function getValue()
             $(".searchNotFound").show();
             setTimeout(function() { $(".searchNotFound").hide(); }, 5000);
             
-            $(".catTable").hide();
+           $(".catTable").hide();
             setTimeout(function() { $(".catTable").show(); }, 5000);
 
             $(".my-new-list").hide();
@@ -213,7 +214,8 @@ function getValue()
         places.data = data;
         var items = [];
         $(".my-new-list").hide();
-   
+        
+        
         //the categories header for the list of the search result
         items.push('<div class="catTable" style="background-color: #ddddd1">'+
                     '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
@@ -236,7 +238,8 @@ function getValue()
                                 '<h2> מסעדות בקירבתי</h2>' +
                             '</td>' + 
                         '</tr>' +
-                    '</table>');
+                    '</table>'+
+                    '</div>');
         
         //shows all the results of the search
         $.each(data, function(key, val) {

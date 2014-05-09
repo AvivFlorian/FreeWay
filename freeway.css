@@ -158,6 +158,21 @@ li:hover {
     outline: #2bb98c; 
 }
 
+.thankYouTextMessage{
+    display: none; 
+    width: 100%; 
+    height: 115px; 
+    text-align: center;
+    /* margin-bottom: 114px; */
+    background: #f5f4ef; 
+    border: 1px solid #00000; 
+    border-radius: 5px; 
+    box-shadow: 0 0 5px 3px ; 
+    color: #666; 
+    outline: #2bb98c; 
+}
+
+
 .noCommentsMessage{
     display: none; 
     width: 100%; 
@@ -186,3 +201,88 @@ li:hover {
     outline: #2bb98c; 
 }
 
+#nameTextBox
+{
+  margin-bottom: 10px; 
+  width: 340px;
+  margin-left: 15px;
+  text-align: right;
+  display: block;
+  border: 1px solid silver;
+  background: linear-gradient(#eee, #fff);
+  transition: all 0.3s ease-out;
+  padding: 5px;
+  color: #555;
+}
+
+#nameTextBox:focus {
+  outline: none;
+  background-position: 0 -1.7em;
+}
+	
+ #commentTextBox
+{
+  margin-bottom: 10px; 
+  width: 340px;
+  margin-left: 15px;
+  text-align: right;
+  display: block;
+  border: 1px solid silver;
+  background: linear-gradient(#eee, #fff);
+  transition: all 0.3s ease-out;
+  padding: 5px;
+  color: #555;
+}
+
+#commentTextBox:focus {
+  outline: none;
+  background-position: 0 -1.7em;
+}
+	
+.sendCommentButton {
+
+	-moz-box-shadow: 7px 6px 18px 0px #2bb98c;
+	-webkit-box-shadow: 7px 6px 18px 0px #2bb98c;
+	box-shadow: 7px 6px 18px 0px #2bb98c;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2bb98c), color-stop(1, #2bb98c));
+	background:-moz-linear-gradient(top, #2bb98c 5%, #2bb98c 100%);
+	background:-webkit-linear-gradient(top, #2bb98c 5%, #2bb98c 100%);
+	background:-o-linear-gradient(top, #2bb98c 5%, #2bb98c 100%);
+	background:-ms-linear-gradient(top, #2bb98c 5%, #2bb98c 100%);
+	background:linear-gradient(to bottom, #2bb98c 5%, #2bb98c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2bb98c', endColorstr='#2bb98c',GradientType=0);
+	background-color:#2bb98c;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #2bb98c;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:17px;
+	font-weight:bold;
+	padding:20px 70px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2bb98c;
+}
+.sendCommentButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2bb98c), color-stop(1, #2bb98c));
+	background:-moz-linear-gradient(top, #2bb98c 5%, #2bb98c 100%);
+	background:-webkit-linear-gradient(top, #2bb98c 5%, #2bb98c 100%);
+	background:-o-linear-gradient(top, #2bb98c 5%, #2bb98c 100%);
+	background:-ms-linear-gradient(top, #2bb98c 5%, #2bb98c 100%);
+	background:linear-gradient(to bottom, #2bb98c 5%, #2bb98c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2bb98c', endColorstr='#2bb98c',GradientType=0);
+	background-color:#2bb98c;
+}
+.sendCommentButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+textarea {
+   font-size: 10pt;
+   font-family: Arial;
+} 
