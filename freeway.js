@@ -188,9 +188,27 @@ function getValue()
    $(".my-new-results-list").hide();
    $(".my-new-list").hide();
    $(".catTable").hide();
-    
-    var x = document.getElementById("searchField").value;
+   $("#resBack").hide();
+   setTimeout(function() { $("#resBack").show(); }, 4000);
   
+   $("#iconsDiv").hide();
+   setTimeout(function() { $("#iconsDiv").show(); }, 4000);
+   $("#curPlaceTable").hide();
+   setTimeout(function() { $("#curPlaceTable").show(); }, 4000);
+  
+   $("#resDetails").hide();
+   setTimeout(function() { $("#resDetails").show(); }, 4000);
+   
+   $("#button1").hide();
+   setTimeout(function() { $("#button1").show(); }, 4000);
+   
+   $("#thePicturesDiv").hide();
+   $("#theCommentsHeaderDiv").hide();
+   $("#showCommentsDiv").hide();
+   $(".addTextComment").hide();
+
+    var x = document.getElementById("searchField").value;
+    
     // call server
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPPN",
             {
@@ -291,6 +309,8 @@ function getValue()
             html: items.join("")
         }).appendTo("body");
     });
+     
+     alert(x);
 }
 
 
@@ -491,7 +511,7 @@ function showComments(){
   //console.log(places.current_place.comments[0].reviewerName);
   //console.log( places.current_place.comments.length);
   for (var i = 0; i < places.current_place.comments.length; i++) {
-      comments.push('<table style="margin-bottom: -20px; margin-left: -25px; width: 100%; color: #d3d3d3">'+
+      comments.push('<table id="showCommentsDiv" style="margin-bottom: -20px; margin-left: -25px; width: 100%; color: #d3d3d3">'+
                         '<tr>' +
                            ' <td style="width: 25%; height: 50px; text-align: left;">' +
                            '    <h4>'+ places.current_place.comments[i].date +'</h4>' +

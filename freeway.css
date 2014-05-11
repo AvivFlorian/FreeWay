@@ -288,5 +288,7 @@ textarea {
 } 
 
 placeholder{
-    text-align: right;
+   text-align: right;
+   color: white;
 }
+
