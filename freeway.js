@@ -13,7 +13,6 @@ getLocation();
 
 }
 
-//makes the back button go th the main page instead of going to the splash page
 
 
 $(document).on("click", ".place-btn", function(e) {
@@ -203,13 +202,13 @@ function getValue()
         console.log(data);
         if (data.length == 0){
             $(".searchNotFound").show();
-            setTimeout(function() { $(".searchNotFound").hide(); }, 5000);
+            setTimeout(function() { $(".searchNotFound").hide(); }, 4000);
             
            $(".catTable").hide();
-            setTimeout(function() { $(".catTable").show(); }, 5000);
+            setTimeout(function() { $(".catTable").show(); }, 4000);
 
             $(".my-new-list").hide();
-            setTimeout(function() { $(".my-new-list").show(); }, 5000);
+            setTimeout(function() { $(".my-new-list").show(); }, 4000);
         }
         places.data = data;
         var items = [];
@@ -381,24 +380,24 @@ function pickColorR() {
 function sendNewData() {
     $("#button2").hide();
    
-   //shows the thank you message for 5 seconds
+   //shows the thank you message for 4 seconds
     $(".thankYouMessage").show();
-        setTimeout(function() { $(".thankYouMessage").hide(); }, 5000);
+        setTimeout(function() { $(".thankYouMessage").hide(); }, 4000);
   
-    //hides the icons for 5 seconds
+    //hides the icons for 4 seconds
     $("#iconsDiv").hide();
-    setTimeout(function() { $("#iconsDiv").show(); }, 5000);
+    setTimeout(function() { $("#iconsDiv").show(); }, 4000);
    
-    //shows button1 after 5 seconds
-    setTimeout(function() { $("#button1").show(); }, 5000);
+    //shows button1 after 4 seconds
+    setTimeout(function() { $("#button1").show(); }, 4000);
   
-    //hides the categories table for 5 seconds
+    //hides the categories table for 4 seconds
     $("#curPlaceTable").hide();
-    setTimeout(function() { $("#curPlaceTable").show(); }, 5000);
+    setTimeout(function() { $("#curPlaceTable").show(); }, 4000);
  
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=UPPL",
     {
-           'googlePlaceId': places.current_place.google_place_id,
+           'googlePlacesId': places.current_place.google_place_id,
            'name': places.current_place.name,
            'parking': curParking,
            'entrance':curEntrance,
@@ -475,36 +474,37 @@ function extraDetails(ref)
 //this function shows all the comments about the current place
 function showComments(){
    $(".comments-list").hide();
+   $(".addTextComment").hide();
    $("#comments1").hide();
    $("#comments2").show();
    var comments = [];
    if( places.current_place.comments.length == 0){
         
-        //hides the comment picture for 5 sec
+        //hides the comment picture for 4 sec
         $("#comments").hide();
-        setTimeout(function() { $("#comments").show(); }, 5000);
+        setTimeout(function() { $("#comments").show(); }, 4000);
         
-        //shoes the noCommentMessage for 5 sec
+        //shows the noCommentMessage for 4 sec
         $(".noCommentsMessage").show();
-        setTimeout(function() { $(".noCommentsMessage").hide(); }, 5000);
+        setTimeout(function() { $(".noCommentsMessage").hide(); }, 4000);
    } else {
-    console.log(places.current_place.comments[0].reviewerName);
-  console.log( places.current_place.comments.length);
+  //console.log(places.current_place.comments[0].reviewerName);
+  //console.log( places.current_place.comments.length);
   for (var i = 0; i < places.current_place.comments.length; i++) {
       comments.push('<table style="margin-bottom: -20px; margin-left: -25px; width: 100%; color: #d3d3d3">'+
                         '<tr>' +
                            ' <td style="width: 25%; height: 50px; text-align: left;">' +
-                           '    <h4>'+ places.current_place.comments[0].date +'</h4>' +
+                           '    <h4>'+ places.current_place.comments[i].date +'</h4>' +
                            ' </td>' +
                            ' <td style="width: 50%; height: 50px;">' +
                            ' </td>' +
                            ' <td style="width: 25%; height: 50px; text-align: right;">' +
-                           '    <h4>'+places.current_place.comments[0].reviewerName+'</h4>' +
+                           '    <h4>'+places.current_place.comments[i].reviewerName+'</h4>' +
                            ' </td>'+
 	 	        '</tr>' +
 	            '</table>'+
                     '<div style="border-bottom: 1px solid gray; width:90%; text-align: right; margin-right: 10%;">' +
-                        '<h3>'+ places.current_place.comments[0].commentText+'</h3>'+
+                        '<h3>'+ places.current_place.comments[i].commentText+'</h3>'+
                     '</div>');	
       
  // comments.push("<ul style=\"padding:0; margin:0;\">"+
@@ -533,6 +533,7 @@ function hideComments(){
    
 //this function lets the user add a comment to a restaurant
 function addTextComment(){
+    $(".comments-list").hide()
     $(".addTextComment").show();
     $("#add_comment1").hide();
     $("#add_comment2").show();
@@ -547,20 +548,22 @@ function hideTextComment(){
 
 //this function sends the new comment to the server
 function sendComment(){
-    $(".addTextComments").hide();
-   
+    $(".addTextComment").hide();
+    
     // call server
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=ADRE",
           {
-            'googlePlaceId': places.current_place.google_place_id,
+            'googlePlacesId': places.current_place.google_place_id,
             'comment': document.getElementById("commentTextBox").value,
-            'date': "",
-            'reviewerName': document.getElementById("nameTextBox").value
+            'reviewerName': document.getElementById("nameTextBox").value,    
+            'placeName': places.current_place.name
+            
+            
       });
    
-    //shows the thank you message for 5 seconds
+    //shows the thank you message for 4 seconds
     $(".thankYouTextMessage").show();
-    setTimeout(function() { $(".thankYouTextMessage").hide(); }, 5000);
+    setTimeout(function() { $(".thankYouTextMessage").hide(); }, 4000);
        
 }
 
