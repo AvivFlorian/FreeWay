@@ -15,17 +15,18 @@
     </description>
     
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="images/logo.jpg"      gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="images/logo.jpg"      gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="images/logo.jpg"      gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="images/logo.jpg"      gap:platform="android" gap:density="xhdpi" />
-    <gap:splash src="images/logo.jpg"        gap:platform="blackberry" />
-    <gap:splash src="images/logo.jpg"        gap:platform="ios"     width="320" height="480" />
-    <gap:splash src="images/logo.jpg"        gap:platform="ios"     width="640" height="960" />
-    <gap:splash src="images/logo.jpg"        gap:platform="ios"     width="640" height="1136" />
-    <gap:splash src="images/logo.jpg"        gap:platform="ios"     width="768" height="1024" />
-    <gap:splash src="images/logo.jpg"        ap:platform="ios"     width="1024" height="768" />
-    <gap:splash src="images/logo.jpg"        gap:platform="winphone" />
-<!--<content src="search.html"/>-->
+    <gap:splash src="images/logo.jpg"       gap:platform="android" gap:qualifier="port-ldpi" />
+    <gap:splash src="images/logo.jpg"       gap:platform="android" gap:qualifier="port-mdpi" />
+    <gap:splash src="images/logo.jpg"       gap:platform="android" gap:qualifier="port-hdpi" />
+    <gap:splash src="images/logo.jpg"       gap:platform="android" gap:qualifier="port-xhdpi" />
+    <gap:splash src="images/logo.jpg"       gap:platform="blackberry" />
+    <gap:splash src="images/logo.jpg"       gap:platform="ios"     width="320" height="480" />
+    <gap:splash src="images/logo.jpg"       gap:platform="ios"     width="640" height="960" />
+    <gap:splash src="images/logo.jpg"       gap:platform="ios"     width="640" height="1136" />
+    <gap:splash src="images/logo.jpg"       gap:platform="ios"     width="768" height="1024" />
+    <gap:splash src="images/logo.jpg"       gap:platform="ios"     width="1024" height="768" />
+    <gap:splash src="images/logo.jpg"       gap:platform="winphone" />  
+
+
    
 </widget>
