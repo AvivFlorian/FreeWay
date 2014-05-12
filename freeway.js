@@ -188,24 +188,6 @@ function getValue()
    $(".my-new-results-list").hide();
    $(".my-new-list").hide();
    $(".catTable").hide();
-   $("#resBack").hide();
-   setTimeout(function() { $("#resBack").show(); }, 4000);
-  
-   $("#iconsDiv").hide();
-   setTimeout(function() { $("#iconsDiv").show(); }, 4000);
-   $("#curPlaceTable").hide();
-   setTimeout(function() { $("#curPlaceTable").show(); }, 4000);
-  
-   $("#resDetails").hide();
-   setTimeout(function() { $("#resDetails").show(); }, 4000);
-   
-   $("#button1").hide();
-   setTimeout(function() { $("#button1").show(); }, 4000);
-   
-   $("#thePicturesDiv").hide();
-   $("#theCommentsHeaderDiv").hide();
-   $("#showCommentsDiv").hide();
-   $(".addTextComment").hide();
 
     var x = document.getElementById("searchField").value;
     
@@ -310,9 +292,140 @@ function getValue()
         }).appendTo("body");
     });
      
-     alert(x);
+   
 }
 
+// sends the typed text from the search box in a restaurant page to the server
+function getValue2()
+{  
+   $(".my-new-results-list").hide();
+   $(".my-new-list").hide();
+   $(".catTable").hide();
+
+    $("#resBack").hide();
+   setTimeout(function() { $("#resBack").show(); }, 4000);
+  
+   $("#iconsDiv").hide();
+   setTimeout(function() { $("#iconsDiv").show(); }, 4000);
+   $("#curPlaceTable").hide();
+   setTimeout(function() { $("#curPlaceTable").show(); }, 4000);
+  
+   $("#resDetails").hide();
+   setTimeout(function() { $("#resDetails").show(); }, 4000);
+   
+   $("#button1").hide();
+   setTimeout(function() { $("#button1").show(); }, 4000);
+   
+   $("#thePicturesDiv").hide();
+   $("#theCommentsHeaderDiv").hide();
+   $("#showCommentsDiv").hide();
+   $(".addTextComment").hide();
+
+    var x = document.getElementById("searchField2").value;
+    
+    // call server
+    $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=GPPN",
+            {
+                'searchField': x
+            },
+    
+    //creats the list of the restaurnt that came back from the search
+    function(data) {  
+        console.log(data);
+        if (data.length == 0){
+            $(".searchNotFound").show();
+            setTimeout(function() { $(".searchNotFound").hide(); }, 4000);
+            
+           $(".catTable").hide();
+            setTimeout(function() { $(".catTable").show(); }, 4000);
+
+            $(".my-new-list").hide();
+            setTimeout(function() { $(".my-new-list").show(); }, 4000);
+        }
+        places.data = data;
+        var items = [];
+        $(".my-new-list").hide();
+        
+        
+        //the categories header for the list of the search result
+        items.push('<div class="catTable" style="background-color: #ddddd1">'+
+                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
+                        '<tr>' +
+                            '<td style="width: 9%; height: 50px;"> '+
+                                '<h3> חנייה</h3> '+
+                            '</td> '+
+                            '<td style="width: 7%; height: 50px;">'+
+                                '<h3>  כניסה</h3>' +
+                            '</td>' +
+                            '<td style="width: 2%; height: 50px;;">' +
+                                '<h3> מרחב במקום</h3>' + 
+                            '</td>' + 
+                            '<td style="width: 8%; height: 50px;">' + 
+                                '<h3> שירותים </h3>' +
+                            '</td>' + 
+                             '<td style="width: 15%; height: 50px;">' + 
+                             '</td>' + 
+                             '<td style="width: 15%; height: 50px;">' + 
+                                '<h2> מסעדות בקירבתי</h2>' +
+                            '</td>' + 
+                        '</tr>' +
+                    '</table>'+
+                    '</div>');
+        
+        //shows all the results of the search
+        $.each(data, function(key, val) {
+            places.current_place = val;
+           
+            //puts the right icon according to the data we have about the place
+            if (places.current_place.parking == undefined) {
+                p_icon = 0;
+            } else {
+                p_icon = places.current_place.parking;
+            }
+            if (places.current_place.entrance == undefined) {
+                e_icon = 0;
+            } else {
+                e_icon = places.current_place.entrance;
+            }
+            if (places.current_place.inside == undefined) {
+                i_icon = 0;
+            } else {
+                i_icon = places.current_place.inside;
+            }
+            if (places.current_place.restroom == undefined) {
+                r_icon = 0;
+            } else {
+                r_icon = places.current_place.restroom;
+            }
+            items.push("<ul style=\"padding:0; margin:0;\">" +
+                    "<li style=\" height:14%; border-bottom: 1px solid gray;\"" + ">" +
+                    "<div style=\"" + "float:left; width: 53%;\"" + ">" +
+                    "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.png\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" +
+                    "data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + "</a>" +
+                    //shows the correct icons of the specific place
+                    "<a href=\"#\"><img src=\"images/parking_icon" + p_icon + ".png\" id=\"parkingList\" style=\"width: 18%; margin-right: 3.6%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/entrance_icon" + e_icon + ".png\" id=\"entranceList\" style=\"width: 18%; margin-right: 3.6%;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/inside_icon" + i_icon + ".png\" id=\"insideList\" style=\"width: 18%; margin-right: 3.6%;;\" /></a>" +
+                    "<a href=\"#\"><img src=\"images/restroom_icon" + r_icon + ".png\" id=\"restroomList\" style=\"width: 18%;\" /></a>" +
+                    "</div>" +
+                    "<div style=\"float:right; width: 47%; text-align: right; \">" +
+                    "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
+                    //<"div style=\"font-size: 0.8rem; color: black;\">5 km from your position</div>" +
+                    "</div>" +
+                    "</li>" +
+                    "</ul>");
+            //   items.push("<li id='" + key + "'>" +
+            //         "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + val.name + "</a></li>");
+        });
+
+        $("<ul/>", {
+            "class": "my-new-results-list",
+            html: items.join("")
+        }).appendTo("body");
+    });
+     
+   
+}
 
 
 //This method is allowing when a user presses on the ADKEN NEGISHUT button to 
