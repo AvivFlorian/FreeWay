@@ -197,8 +197,8 @@ function showPosition(position) {
 function getValue()
 {  
    
-  // $(".my-new-results-list").hide();
-   //$(".my-new-list").hide();
+   $(".my-new-results-list").hide();
+   $(".my-new-list").hide();
    $(".catTable").hide();
    
     var x = document.getElementById("searchField").value;
@@ -289,7 +289,7 @@ function getValue()
                     "<a href=\"#\"><img src=\"images/restroom_icon" + r_icon + ".png\" id=\"restroomList\" style=\"width: 18%;\" /></a>" +
                     "</div>" +
                     "<div style=\"float:right; width: 47%; text-align: right; \">" +
-                    "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
+                    "<a data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\"><div style=\"font-family: Alef Hebrew; font-size: 1.4rem; color: #2bb98b;\">" + val.name + "</div></a>" +
                     //<"div style=\"font-size: 0.8rem; color: black;\">5 km from your position</div>" +
                     "</div>" +
                     "</li>" +
@@ -358,7 +358,7 @@ function getValue2()
         
         //the categories header for the list of the search result
         items.push('<div class="catTable" style="background-color: #ddddd1">'+
-                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
+                    '<table style="font-family: Alef Hebrew; text-align: center; margin-left: 8%; width: 90%;">' +
                         '<tr>' +
                             '<td style="width: 9%; height: 50px;"> '+
                                 '<h3> חנייה</h3> '+
