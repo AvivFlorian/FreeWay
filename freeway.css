@@ -218,6 +218,23 @@ li:hover {
     font-family:Alef Hebrew;
 }
 
+.searchNotFound1  {
+    
+    display: none; 
+    width: 100%; 
+    margin-top: 10px;
+    height: 200px; 
+    text-align: center;
+    background:#ffffff; 
+    border: 1px solid #00000; 
+    border-radius: 5px; 
+    box-shadow: 0 0 5px 3px ; 
+    color: #666; 
+    outline: #2bb98c; 
+    font-family:Alef Hebrew;
+}
+
+
 #nameTextBox
 {
   margin-bottom: 10px; 

@@ -342,8 +342,8 @@ function getValue2()
     function(data) {  
         console.log(data);
         if (data.length == 0){
-            $(".searchNotFound").show();
-            setTimeout(function() { $(".searchNotFound").hide(); }, 4000);
+            $(".searchNotFound1").show();
+            setTimeout(function() { $(".searchNotFound1").hide(); }, 4000);
             
            $(".catTable").hide();
             setTimeout(function() { $(".catTable").show(); }, 4000);
