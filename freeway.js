@@ -33,9 +33,20 @@ $(document).on("click", ".place-btn", function(e) {
             $("#resPage").show();
             $(".my-new-list").hide();
             $(".my-new-results-list").hide();
-            //$(".placesAround").hide();
             $("#logoPic").hide();
             $("#button1").click(changeIcons);
+            $(".catTable").show();
+            $("#resBack").show();
+            $("#iconsDiv").show();
+            $("#curPlaceTable").show();
+            $("#resDetails").show();
+            $("#button1").show();
+            $("#thePicturesDiv").show();
+            $("#pictureDiv").show();
+            $("#place").show();
+            $("#commentsHeader").show();
+            $("#resTextComment").show();
+
 
 
             //puts the right icon according to the data we have about the place
@@ -122,7 +133,7 @@ function showPosition(position) {
                              '<td style="width: 15%; height: 50px;">' + 
                              '</td>' + 
                              '<td style="width: 15%; height: 50px;">' + 
-                                '<h2> מסעדות בקירבתי</h2>' +
+                                '<h2>מסעדות בקרבתי</h2>' +
                             '</td>' + 
                         '</tr>' +
                     '</table>'+
@@ -235,7 +246,7 @@ function getValue()
                              '<td style="width: 15%; height: 50px;">' + 
                              '</td>' + 
                              '<td style="width: 15%; height: 50px;">' + 
-                                '<h2> מסעדות בקירבתי</h2>' +
+                                '<h2>שם המסעדה</h2>' +
                             '</td>' + 
                         '</tr>' +
                     '</table>'+
@@ -299,30 +310,26 @@ function getValue()
 // sends the typed text from the search box in a restaurant page to the server
 function getValue2()
 {  
+   //hides everything that is not needed
    $(".my-new-results-list").hide();
    $(".my-new-list").hide();
    $(".catTable").hide();
-
-    $("#resBack").hide();
-   setTimeout(function() { $("#resBack").show(); }, 4000);
-  
+   $("#resBack").hide();
    $("#iconsDiv").hide();
-   setTimeout(function() { $("#iconsDiv").show(); }, 4000);
-  
-    $("#curPlaceTable").hide();
-   setTimeout(function() { $("#curPlaceTable").show(); }, 4000);
-  
+   $("#curPlaceTable").hide();
    $("#resDetails").hide();
-   setTimeout(function() { $("#resDetails").show(); }, 4000);
-   
    $("#button1").hide();
-   setTimeout(function() { $("#button1").show(); }, 4000);
-   
+   $("#button2").hide();
    $("#thePicturesDiv").hide();
    $("#theCommentsHeaderDiv").hide();
    $("#showCommentsDiv").hide();
    $(".addTextComment").hide();
-
+   $("#pictureDiv").hide();
+   $("#place").hide();
+   $("#commentsHeader").hide();
+   $("#resTextComment").hide();
+   
+   
     var x = document.getElementById("searchField2").value;
     
     // call server
@@ -367,8 +374,8 @@ function getValue2()
                             '</td>' + 
                              '<td style="width: 15%; height: 50px;">' + 
                              '</td>' + 
-                             '<td style="width: 15%; height: 50px;">' + 
-                                '<h2> מסעדות בקירבתי</h2>' +
+                              '<td style="width: 15%; height: 50px;">' + 
+                                '<h2>שם המסעדה</h2>' +
                             '</td>' + 
                         '</tr>' +
                     '</table>'+
@@ -642,7 +649,7 @@ function showComments(){
                            ' </td>'+
 	 	        '</tr>' +
 	            '</table>'+
-                    '<div style="border-bottom: 1px solid gray; width:90%; text-align: right; margin-right: 10%;">' +
+                    '<div id="resTextComment" style="border-bottom: 1px solid gray; width:90%; text-align: right; margin-right: 10%;">' +
                         '<h3>'+ places.current_place.comments[i].commentText+'</h3>'+
                     '</div>');	
       

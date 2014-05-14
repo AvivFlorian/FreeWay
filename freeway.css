@@ -3,6 +3,8 @@
     Author     : Aviv Florian
 */
 
+@import url(http://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+
 body{
  //background-color:#ede4dc;
  background-color: rgb(250, 248, 248);
@@ -82,7 +84,7 @@ li:hover {
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Verdana;
+	font-family:Alef Hebrew;
 	font-size:17px;
 	font-weight:bold;
 	padding:20px 70px;
@@ -123,7 +125,7 @@ li:hover {
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Verdana;
+	font-family:Alef Hebrew;
 	font-size:17px;
 	font-weight:bold;
 	padding:20px 70px;
@@ -259,7 +261,7 @@ li:hover {
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Verdana;
+	font-family:Alef Hebrew;
 	font-size:17px;
 	font-weight:bold;
 	padding:20px 70px;
@@ -284,7 +286,7 @@ li:hover {
 
 textarea {
    font-size: 10pt;
-   font-family: Arial;
+   font-family: Alef Hebrew;
 } 
 
 placeholder{
