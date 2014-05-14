@@ -185,10 +185,11 @@ function showPosition(position) {
 // sends the typed text from the search box to the server
 function getValue()
 {  
-   $(".my-new-results-list").hide();
-   $(".my-new-list").hide();
+   
+  // $(".my-new-results-list").hide();
+   //$(".my-new-list").hide();
    $(".catTable").hide();
-
+   
     var x = document.getElementById("searchField").value;
     
     // call server
@@ -217,7 +218,7 @@ function getValue()
         
         //the categories header for the list of the search result
         items.push('<div class="catTable" style="background-color: #ddddd1">'+
-                    '<table style="text-align: center; margin-left: 8%; width: 90%;">' +
+                    '<table id="resTable" style="text-align: center; margin-left: 8%; width: 90%;">' +
                         '<tr>' +
                             '<td style="width: 9%; height: 50px;"> '+
                                 '<h3> חנייה</h3> '+
@@ -307,7 +308,8 @@ function getValue2()
   
    $("#iconsDiv").hide();
    setTimeout(function() { $("#iconsDiv").show(); }, 4000);
-   $("#curPlaceTable").hide();
+  
+    $("#curPlaceTable").hide();
    setTimeout(function() { $("#curPlaceTable").show(); }, 4000);
   
    $("#resDetails").hide();
@@ -586,7 +588,7 @@ function extraDetails(ref)
                     $('#place').css('no-repeat', "true");
                    
                 } else {
-                    var imageUrl = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + data.placePhotos + '&sensor=true&key=AIzaSyArToMuYtcxnymrrBjf2D7YabV2HjpoZuU';
+                    var imageUrl = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + data.placePhotos + '&sensor=true&key=AIzaSyDEckGBe4hGIWs8PSRpBtWBM_zoiT0Flck';
                     console.log(imageUrl);
                     $('#place').css('background-image', 'url(' + imageUrl + ')');
                     // $('#place').css('background-size',"cover");
@@ -599,7 +601,11 @@ function extraDetails(ref)
                     $("#place").find(".phone").text("אין מספר טלפון");
                 }
 
-
+                if (data.formatted_address != null) {
+                    $("#place").find(".address").text(data.formatted_address);
+                } else {
+                    $("#place").find(".address").text("אין כתובת במערכת");
+                }
 
             }
     );
@@ -704,3 +710,14 @@ function sendComment(){
 //function addPictures(){
     
 //}
+
+/*! Reloads page on every visit */
+function Reload() {
+try {
+alert("reload is working");
+var headElement = document.getElementsByTagName("head")[0];
+if (headElement && headElement.innerHTML)
+headElement.innerHTML += "<meta http-equiv=\"refresh\" content=\"1\">";
+}
+catch (e) {}
+}
