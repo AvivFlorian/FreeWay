@@ -695,6 +695,8 @@ function hideTextComment(){
 //this function sends the new comment to the server
 function sendComment(){
     $(".addTextComment").hide();
+    $("#add_comment1").show();
+    $("#add_comment2").hide();
     
     // call server
     $.getJSON("http://avivshay.milab.idc.ac.il/json.php?cmd=ADRE",
@@ -728,3 +730,8 @@ headElement.innerHTML += "<meta http-equiv=\"refresh\" content=\"1\">";
 }
 catch (e) {}
 }
+
+//deals with the delete button onide the search box
+$("#searchclear").click(function(){
+    $("#searchinput").val('');
+});

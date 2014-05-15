@@ -12,14 +12,14 @@
         <script src="phonegap.js" type="text/javascript"></script>
         <script src="freeway.js" type="text/javascript"></script>
 
-        
+
         <!-- in order to hide the underline of links -->
         <style type="text/css">a {text-decoration: none}</style>
         <link rel="stylesheet" href="freeway.css" />
-        
+
         <!--the Favicon - this is the small icon in the browser tabs-->
         <link rel="shortcut icon" href="images/colorsIcon.png"/>
-    
+
     </head>
 
     <body onload="init();" style="border:0; margin:0; padding: 0;"> 
@@ -38,44 +38,43 @@
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>
         -->
-        
-        
+
+
         <!--The header div -->
         <div id="headerDiv" style="background-color: #2bb98b; height: 50%; color: white; line-height: 100px; text-align: center;">
             <div>     
                 <a href="index.html"> <img src="images/freeWayLogo.png" style="width:20%" /></a>
             </div>
-
-            <div>
-                <input style="font-family:Alef Hebrew; text-align: right; border:2px solid white; color: white; font-size: 1.5rem; border-radius: 12px; padding: 2%; width: 90%; background: transparent url(images/magGlass.png) no-repeat 4px 4px; " type="search" name="searchField" id="searchField"  onchange="getValue()" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;חפש מסעדה נגישה" list="dataList1">
+            <div class="btn-group">
+                <input style="font-family:Alef Hebrew; text-align: right; border:2px solid white; color: white; font-size: 1.5rem; border-radius: 12px; padding: 2%; width: 90%; background: transparent url(images/magGlass.png) no-repeat 4px 4px; " type="search" name="searchField" id="searchField"  onchange="getValue()" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;חפש מסעדה נגישה" list="dataList1"> 
+                <span id="searchclear" class="glyphicon glyphicon-remove-circle"></span>
             </div>
-            
         </div>
-      
+
         <!-- the no results message div-->
         <div class="searchNotFound">
             </br></br></br></br></br>
             <h1>לא נמצאו תוצאות לחיפוש</h1>
         </div>
-      
-        
+
+
         <!--The restaurant div -->
         <div data-role="page" id="resPage" style="display: none; ">  
-           
+
             <!--The header div in a restaurant page with the search box  -->
             <div id="newSearch" style="background-color: #2bb98b; height: 70px; color: white; line-height: 100px; text-align: center;">
                 <div>
-                  <a href="index.html"><img src="images/freeWayLogo.png" style="width:15%; margin-right:2%;" /></a>
-                  <input style="font-family:Alef Hebrew; text-align: right; border:2px solid white; color: white; font-size: 1.5rem; border-radius: 12px; padding: 1%; width: 70%; background: transparent url(images/magGlass.png) no-repeat 4px 4px; " type="search" name="searchField2" id="searchField2" onchange="getValue2()" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;חפש מסעדה נגישה" list="dataList1">
+                    <a href="index.html"><img src="images/freeWayLogo.png" style="width:15%; margin-right:2%;" /></a>
+                    <input style="font-family:Alef Hebrew; text-align: right; border:2px solid white; color: white; font-size: 1.5rem; border-radius: 12px; padding: 1%; width: 70%; background: transparent url(images/magGlass.png) no-repeat 4px 4px; " type="search" name="searchField2" id="searchField2" onchange="getValue2()" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;חפש מסעדה נגישה" list="dataList1">
                 </div>
             </div>
-            
-            
-        <!-- the no results message div-->
-        <div class="searchNotFound1">
-            </br></br></br></br></br>
-            <h1>לא נמצאו תוצאות לחיפוש</h1>
-        </div>
+
+
+            <!-- the no results message div-->
+            <div class="searchNotFound1">
+                </br></br></br></br></br>
+                <h1>לא נמצאו תוצאות לחיפוש</h1>
+            </div>
             <!--The background photo div -->
             <div id="place">
                 <div id="resBack">
@@ -87,21 +86,21 @@
                 </div>
             </div>
 
-             <!--the thank you for updating our data base message-->
+            <!--the thank you for updating our data base message-->
             <div class="thankYouMessage">
                 </br></br></br></br></br></br>
                 <h1>העדכון נקלט בהצלחה</h1>
                 <h1>תודה שתרמת מידע למאגר שלנו</h1>
             </div>
-             
+
             <!--The icons div -->
-                <div id="iconsDiv" style="clear:both; margin-bottom: 1px; font-size:0; text-align: center;">
-                    <img src="" id="parking" style="width: 60px; height: 60px; margin-right: 10%; "/> 
-                    <img src="" id="entrance" style="width: 60px; height: 60px; margin-right: 10%;"/>
-                    <img src="" id="inside" style="width: 60px; height: 60px; margin-right: 10%;"/>
-                    <img src="" id="restroom" style="width: 60px; height: 60px;"/>
-                </div>
-             <div style="text-align: center;">
+            <div id="iconsDiv" style="clear:both; margin-bottom: 1px; font-size:0; text-align: center;">
+                <img src="" id="parking" style="width: 60px; height: 60px; margin-right: 10%; "/> 
+                <img src="" id="entrance" style="width: 60px; height: 60px; margin-right: 10%;"/>
+                <img src="" id="inside" style="width: 60px; height: 60px; margin-right: 10%;"/>
+                <img src="" id="restroom" style="width: 60px; height: 60px;"/>
+            </div>
+            <div style="text-align: center;">
                 <div id="curPlaceTable">
                     <table style="text-align: center; width: 100%">
                         <tr>
@@ -112,10 +111,10 @@
                                 <h2> כניסה</h2>
                             </td>
                             <td style="width: 25%; height: 50px;;">
-                               <h2> מרחב במקום</h2>
+                                <h2> מרחב במקום</h2>
                             </td>
                             <td style="width: 25%; height: 50px;">
-                               <h2> שירותים </h2>
+                                <h2> שירותים </h2>
                             </td>
                         </tr>
                     </table>
@@ -125,8 +124,8 @@
                 <a id="button2" class="myButton2" style="display: none; height: 20px; width:170px; border: 2px solid #99d7be; ">שלח עדכון</a>
             </div>
 
-           
-            
+
+
             <!--The google map div 
             <div onclick="showMap()" id="map-canvas" style="background:#efefef; height: 65px; color: white;">
             </div>
@@ -141,28 +140,28 @@
 
             <!--The comments header div -->
             <div id="commentsHeader" style="background:#f5f4ef; height: 50px; color: white;  line-height: 50px; text-align: center;">
-                 <a>
+                <a>
                     <img onclick="showComments()" src="images/comments.jpg" id="comments1" style="width: 180px; height: 30px; margin-left: 200px; " /> 
                     <img onclick="hideComments()" src="images/comments.jpg" id="comments2" style="width: 180px; height: 30px; margin-left: 200px; display: none;" /> 
-                 </a>
-                 <div class="noCommentsMessage">
+                </a>
+                <div class="noCommentsMessage">
                     <h1>אין עדין ביקורות על המקום, נשמח שתוסיף</h1>
-                 </div>
+                </div>
                 <div class="addTextComment" style="display:none; text-align: center; ">
                     <form>
-                        <textarea rows="1" cols="50" id="nameTextBox" placeholder="הכנס את שמך המלא"></textarea>
-                        <textarea rows="10" cols="50" id="commentTextBox" placeholder="...הכנס כאן את הביקורת"></textarea>
+                        <textarea rows="1" cols="50" id="nameTextBox" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;הכנס את שמך המלא"></textarea>
+                        <textarea rows="10" cols="50" id="commentTextBox" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...הכנס כאן את הביקורת"></textarea>
                         <a onclick="sendComment()" id="sendCommentButton" class="sendCommentButton" style="height: 20px; width:170px; border: 2px solid #99d7be; display: inline-block;">
                             <h4 style="margin-top: -15px;">   הוסף ביקורת</h4>
                         </a>
                     </form>
                 </div>     
-                     <!--the thank you for updating our data text message-->
+                <!--the thank you for updating our data text message-->
                 <div class="thankYouTextMessage">
                     <h1>הביקורת שלך נקלטה בהצלחה</h1>
                     <h1>תודה שתרמת מידע למאגר שלנו</h1>
-                 </div>
-               
+                </div>
+
             </div>
         </div>
     </body>
