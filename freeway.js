@@ -278,7 +278,7 @@ function getValue()
                 r_icon = places.current_place.restroom;
             }
             items.push("<ul style=\"padding:0; margin:0;\">" +
-                    "<li style=\" height:14%; border-bottom: 1px solid gray;\"" + ">" +
+                    "<li style=\" height:14%; border-bottom: 1px solid gray;wisth:375px\"" + ">" +
                     "<div style=\"" + "float:left; width: 53%;\"" + ">" +
                     "<a href=\"" + "#\"" + "><img src=\"" + "images/leftArrow.png\"" + "style=\"" + "width: 4%; margin-right: 11.6%;\"" +
                     "data-place-id=\"" + val.google_place_id + "\" href=\"http://avivshay.milab.idc.ac.il/json.php?cmd=PLACE&place_id=" + val.google_place_id + "\" class=\" ui-btn ui-btn-icon-right ui-icon-carat-r place-btn\">" + "</a>" +
