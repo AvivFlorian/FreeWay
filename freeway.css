@@ -15,12 +15,6 @@ body{
  font-family:Alef Hebrew;
 }
 
-.my-new-list{
-    width: 100%;
-    font-family:Alef Hebrew;
-}
-
-
 #headerDiv {
 
   background-image: url('images/search_background.png');
@@ -41,6 +35,7 @@ input[type="search"]:focus{
     margin-top: 0px;
     margin-left: -45px;
     font-family:Alef Hebrew;
+    width: 100%;
 }
 
 .my-new-results-list {
