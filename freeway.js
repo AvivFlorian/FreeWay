@@ -731,7 +731,7 @@ headElement.innerHTML += "<meta http-equiv=\"refresh\" content=\"1\">";
 catch (e) {}
 }
 
-//deals with the delete button onide the search box
+//deals with the delete button inside the search box
 $("#searchclear").click(function(){
     $("#searchinput").val('');
 });
