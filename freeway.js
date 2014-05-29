@@ -8,8 +8,8 @@ var curRestroom;
 
 function init(){
 //alert("init is working");
-document.addEventListener("deviceready", getLocation, false);
-//getLocation();
+//document.addEventListener("deviceready", getLocation, false);
+getLocation();
 
 }
 

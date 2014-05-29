@@ -343,6 +343,7 @@ border-radius: 12px;
 padding: 2%; 
 width: 70%;
 background: transparent url(images/magGlass.png) no-repeat 4px 4px;
+/* margin-top: -36px; */
 }
 #searchclear {
     position: absolute;
